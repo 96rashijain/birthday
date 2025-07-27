@@ -3,18 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy 32nd Birthday Prithvi! 💕</title>
+    <title>Happy 32nd Birthday Prithvi! 🎂</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Pacifico&family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Kalam:wght@300;400;700&family=Righteous&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-
-      :root {
-        --charcoal: #3a3a3a;
-        --warm-gray: #8b7d6b;
-        --dusty-rose: #c4a69d;
-        --warm-beige: #d4c4a0;
-        --cream: #e8dcc0;
-        --light-cream: #f5f2ea;
-      }
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap");
 
       * {
         margin: 0;
@@ -22,467 +13,93 @@
         box-sizing: border-box;
       }
 
+      :root {
+        --primary: #ff6b9d;
+        --secondary: #ff8e53;
+        --accent: #4ecdc4;
+        --purple: #a8e6cf;
+        --warm: #ffd93d;
+        --gradient-main: linear-gradient(
+          135deg,
+          #667eea 0%,
+          #764ba2 50%,
+          #f093fb 100%
+        );
+        --gradient-secondary: linear-gradient(135deg, #ff6b9d 0%, #4ecdc4 100%);
+        --gradient-tertiary: linear-gradient(135deg, #a8e6cf 0%, #ffd93d 100%);
+        --dark: #2c3e50;
+        --light: #ffffff;
+        --glass: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.2);
+      }
+
       body {
-        font-family: "Quicksand", sans-serif;
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
         overflow-x: hidden;
-        background: var(--light-cream);
-        color: var(--charcoal);
-        scroll-behavior: smooth;
+        background: var(--gradient-main);
+        min-height: 100vh;
       }
 
       /* Navigation */
       .nav {
         position: fixed;
-        top: 2rem;
-        right: 2rem;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: 1000;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 15px 0;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        padding: 1rem;
-        border-radius: 25px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      }
-
-      .nav-dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--warm-gray);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        opacity: 0.5;
-      }
-
-      .nav-dot.active {
-        background: var(--dusty-rose);
-        transform: scale(1.3);
-        opacity: 1;
-      }
-
-      .nav-dot:hover {
-        transform: scale(1.1);
-        opacity: 0.8;
-      }
-
-      /* Page Styles */
-      .page {
-        min-height: 100vh;
-        display: none;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        padding: 2rem;
-        position: relative;
+        gap: 10px;
+        padding: 0 20px;
+      }
+
+      .nav-btn {
+        padding: 12px 24px;
+        background: var(--glass);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        border-radius: 30px;
+        color: white;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .nav-btn:hover {
+        background: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+      }
+
+      .nav-btn.active {
+        background: var(--primary);
+        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+      }
+
+      /* Page Transitions */
+      .page {
+        display: none;
+        min-height: 100vh;
+        animation: fadeIn 0.8s ease-in-out;
+        padding-top: 80px;
       }
 
       .page.active {
-        display: flex;
-        animation: fadeIn 0.8s ease-out;
-      }
-
-      /* Page 1 - Welcome */
-      .page-1 {
-        background: linear-gradient(
-          135deg,
-          var(--cream) 0%,
-          var(--warm-beige) 100%
-        );
-        text-align: center;
-      }
-
-      .birthday-text {
-        font-family: "Righteous", cursive;
-        font-size: clamp(3rem, 8vw, 7rem);
-        font-weight: 400;
-        margin-bottom: 1rem;
-        color: var(--charcoal);
-        letter-spacing: 2px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .birthday-subtitle {
-        font-family: "Pacifico", cursive;
-        font-size: clamp(1.8rem, 4vw, 3.5rem);
-        margin-bottom: 2rem;
-        color: var(--warm-gray);
-        font-weight: 400;
-      }
-
-      .age-display {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(196, 166, 157, 0.3);
-        border-radius: 20px;
-        padding: 2rem 3rem;
-        margin: 2rem 0;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      }
-
-      .age-number {
-        font-family: "Fredoka", sans-serif;
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: var(--dusty-rose);
-        margin-top: 0.5rem;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .explore-btn {
-        background: linear-gradient(
-          135deg,
-          var(--dusty-rose),
-          var(--warm-gray)
-        );
-        border: none;
-        padding: 1.2rem 3rem;
-        border-radius: 50px;
-        color: white;
-        font-size: 1.2rem;
-        font-weight: 600;
-        font-family: "Comfortaa", cursive;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: 2rem;
-        box-shadow: 0 4px 20px rgba(196, 166, 157, 0.3);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .explore-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(196, 166, 157, 0.4);
-      }
-
-      /* Page 2 - Timer */
-      .page-2 {
-        background: linear-gradient(
-          135deg,
-          var(--warm-beige) 0%,
-          var(--cream) 100%
-        );
-      }
-
-      .timer-container {
-        text-align: center;
-        max-width: 900px;
-      }
-
-      .timer-title {
-        font-family: "Lobster Two", cursive;
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 3rem;
-        color: var(--charcoal);
-        font-weight: 700;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .marriage-timer {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-
-      .timer-card {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(196, 166, 157, 0.2);
-        border-radius: 20px;
-        padding: 2rem 1rem;
-        text-align: center;
-        transition: transform 0.3s ease;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      }
-
-      .timer-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .timer-number {
-        font-family: "Fredoka", sans-serif;
-        font-size: 3.5rem;
-        font-weight: 700;
-        color: var(--dusty-rose);
         display: block;
-        margin-bottom: 0.5rem;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
       }
 
-      .timer-label {
-        font-size: 1rem;
-        color: var(--warm-gray);
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 600;
-        font-family: "Comfortaa", cursive;
-      }
-
-      .journey-text {
-        font-family: "Kalam", cursive;
-        font-size: 1.8rem;
-        color: var(--warm-gray);
-        margin-top: 2rem;
-        font-weight: 400;
-      }
-
-      /* Page 3 - Story Timeline */
-      .page-3 {
-        background: var(--light-cream);
-        padding: 4rem 2rem 6rem 2rem;
-        align-items: flex-start;
-        overflow-y: auto;
-        min-height: 100vh;
-        height: auto;
-      }
-
-      .story-title {
-        font-family: "Righteous", cursive;
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        font-weight: 400;
-        text-align: center;
-        margin-bottom: 4rem;
-        color: var(--charcoal);
-        width: 100%;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        letter-spacing: 1px;
-      }
-
-      .timeline {
-        max-width: 1000px;
-        margin: 0 auto;
-        position: relative;
-        width: 100%;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        height: 100%;
-        background: linear-gradient(
-          to bottom,
-          var(--dusty-rose),
-          var(--warm-gray)
-        );
-      }
-
-      .timeline-item {
-        display: flex;
-        margin-bottom: 4rem;
-        position: relative;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      }
-
-      .timeline-item:nth-child(even) {
-        flex-direction: row-reverse;
-      }
-
-      .timeline-item.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .timeline-content {
-        flex: 1;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(196, 166, 157, 0.2);
-        border-radius: 20px;
-        padding: 2.5rem;
-        margin: 0 2rem;
-        position: relative;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-        min-height: auto;
-        word-wrap: break-word;
-      }
-
-      .timeline-date {
-        background: var(--dusty-rose);
-        color: white;
-        padding: 0.5rem 1.5rem;
-        border-radius: 25px;
-        font-weight: 500;
-        display: inline-block;
-        margin-bottom: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .timeline-title {
-        font-family: "Poppins", sans-serif;
-        font-size: 1.8rem;
-        color: var(--charcoal);
-        margin-bottom: 1rem;
-        font-weight: 600;
-      }
-
-      .timeline-description {
-        line-height: 1.8;
-        color: var(--warm-gray);
-        font-size: 1rem;
-        margin: 0;
-        text-align: left;
-        font-family: "Quicksand", sans-serif;
-        font-weight: 400;
-      }
-
-      .timeline-dot {
-        position: absolute;
-        left: 50%;
-        top: 2rem;
-        transform: translateX(-50%);
-        width: 16px;
-        height: 16px;
-        background: var(--dusty-rose);
-        border-radius: 50%;
-        border: 4px solid var(--light-cream);
-        z-index: 10;
-      }
-
-      /* Page 4 - Gallery */
-      .page-4 {
-        background: var(--cream);
-        padding: 4rem 2rem 6rem 2rem;
-        align-items: flex-start;
-        overflow-y: auto;
-        min-height: 100vh;
-        height: auto;
-      }
-
-      .gallery-title {
-        font-family: "Righteous", cursive;
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        font-weight: 400;
-        text-align: center;
-        margin-bottom: 4rem;
-        color: var(--charcoal);
-        width: 100%;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        letter-spacing: 1px;
-      }
-
-      .photo-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .photo-card {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(196, 166, 157, 0.2);
-        border-radius: 20px;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      }
-
-      .photo-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .photo-card img {
-        width: 100%;
-        height: 280px;
-        object-fit: cover;
-        transition: all 0.5s ease;
-      }
-
-      .photo-card.bw img {
-        filter: grayscale(100%) sepia(20%);
-      }
-
-      .photo-card:hover.bw img {
-        filter: grayscale(0%) sepia(0%);
-      }
-
-      .photo-card.vintage img {
-        filter: sepia(30%) saturate(80%) contrast(1.1);
-      }
-
-      .photo-card:hover.vintage img {
-        filter: none;
-      }
-
-      .photo-caption {
-        padding: 1.5rem;
-      }
-
-      .photo-caption h3 {
-        font-family: "Poppins", sans-serif;
-        font-size: 1.5rem;
-        color: var(--charcoal);
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-      }
-
-      .photo-caption p {
-        color: var(--warm-gray);
-        font-size: 0.95rem;
-        line-height: 1.5;
-        font-family: "Quicksand", sans-serif;
-        font-weight: 400;
-      }
-
-      /* Page 5 - Birthday Message */
-      .page-5 {
-        background: linear-gradient(
-          135deg,
-          var(--dusty-rose) 0%,
-          var(--warm-gray) 100%
-        );
-        text-align: center;
-      }
-
-      .message-container {
-        max-width: 800px;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 30px;
-        padding: 3rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      }
-
-      .message-title {
-        font-family: "Lobster Two", cursive;
-        font-size: clamp(2.5rem, 5vw, 3.5rem);
-        margin-bottom: 2rem;
-        color: var(--charcoal);
-        font-weight: 700;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      .message-text {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        color: var(--warm-gray);
-        font-family: "Quicksand", sans-serif;
-        font-weight: 400;
-      }
-
-      .signature {
-        font-family: "Pacifico", cursive;
-        font-size: 2.5rem;
-        color: var(--dusty-rose);
-        margin-top: 2rem;
-        font-weight: 400;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Animations */
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -494,738 +111,950 @@
         }
       }
 
-      .floating {
-        animation: float 4s ease-in-out infinite;
+      /* Home Page */
+      .home-page {
+        background: var(--gradient-main);
+        background-size: 400% 400%;
+        animation: gradientShift 10s ease infinite;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .floating-hearts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .heart {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.4);
+        animation: float 8s infinite ease-in-out;
+        font-size: 20px;
       }
 
       @keyframes float {
         0%,
         100% {
-          transform: translateY(0px);
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10%,
+        90% {
+          opacity: 1;
         }
         50% {
-          transform: translateY(-8px);
+          transform: translateY(-100px) rotate(180deg);
         }
       }
 
-      /* Mobile Responsiveness */
-      @media (max-width: 768px) {
-        .nav {
-          top: 1rem;
-          right: 1rem;
-          padding: 0.8rem;
-          gap: 0.8rem;
-        }
+      .hero-content {
+        z-index: 2;
+        position: relative;
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+      }
 
-        .nav-dot {
-          width: 10px;
-          height: 10px;
-        }
+      .birthday-title {
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 20px;
+        animation: bounceIn 1s ease-out;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      }
 
-        .page {
-          padding: 1.5rem;
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0.3);
+          opacity: 0;
         }
-
-        .birthday-text {
-          font-size: clamp(2rem, 10vw, 4rem);
-          margin-bottom: 1rem;
-          letter-spacing: 1px;
+        50% {
+          transform: scale(1.05);
         }
-
-        .birthday-subtitle {
-          font-size: clamp(1.2rem, 6vw, 2.5rem);
-          margin-bottom: 1.5rem;
+        70% {
+          transform: scale(0.9);
         }
-
-        .age-display {
-          padding: 1.5rem 2rem;
-          margin: 1.5rem 0;
-        }
-
-        .age-number {
-          font-size: 2.5rem;
-        }
-
-        .explore-btn {
-          padding: 1rem 2rem;
-          font-size: 1rem;
-          margin-top: 1.5rem;
-        }
-
-        .timer-title {
-          font-size: clamp(1.8rem, 8vw, 3rem);
-          margin-bottom: 2rem;
-        }
-
-        .marriage-timer {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1rem;
-          margin: 2rem 0;
-        }
-
-        .timer-card {
-          padding: 1.5rem 1rem;
-        }
-
-        .timer-number {
-          font-size: 2.5rem;
-        }
-
-        .timer-label {
-          font-size: 0.8rem;
-          letter-spacing: 1px;
-        }
-
-        .journey-text {
-          font-size: 1.4rem;
-          margin-top: 1.5rem;
-        }
-
-        .story-title,
-        .gallery-title {
-          font-size: clamp(2rem, 8vw, 3.5rem);
-          margin-bottom: 2rem;
-        }
-
-        .timeline::before {
-          left: 2rem;
-        }
-
-        .timeline-item {
-          flex-direction: column !important;
-          margin-bottom: 2rem;
-        }
-
-        .timeline-item:nth-child(even) {
-          flex-direction: column !important;
-        }
-
-        .timeline-content {
-          margin: 0 0 0 3rem;
-          padding: 1.5rem;
-        }
-
-        .timeline-dot {
-          left: 2rem;
-        }
-
-        .timeline-title {
-          font-size: 1.4rem;
-        }
-
-        .timeline-description {
-          font-size: 0.9rem;
-        }
-
-        .photo-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .photo-card img {
-          height: 220px;
-        }
-
-        .photo-caption {
-          padding: 1rem;
-        }
-
-        .photo-caption h3 {
-          font-size: 1.3rem;
-        }
-
-        .photo-caption p {
-          font-size: 0.9rem;
-        }
-
-        .message-container {
-          padding: 2rem;
-          margin: 1rem;
-        }
-
-        .message-title {
-          font-size: clamp(2rem, 8vw, 2.8rem);
-          margin-bottom: 1.5rem;
-        }
-
-        .message-text {
-          font-size: 1rem;
-          margin-bottom: 1.5rem;
-        }
-
-        .signature {
-          font-size: 2rem;
-          margin-top: 1.5rem;
+        100% {
+          transform: scale(1);
+          opacity: 1;
         }
       }
 
-      /* Small Mobile (up to 480px) */
-      @media (max-width: 480px) {
-        .page {
-          padding: 1rem;
-        }
+      .age-display {
+        font-size: clamp(4rem, 12vw, 8rem);
+        font-weight: 700;
+        background: var(--gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 20px 0;
+        animation: pulse 2s infinite;
+        text-shadow: 0 0 30px rgba(255, 107, 157, 0.5);
+      }
 
-        .nav {
-          top: 0.5rem;
-          right: 0.5rem;
-          padding: 0.6rem;
-          gap: 0.6rem;
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
         }
-
-        .nav-dot {
-          width: 8px;
-          height: 8px;
-        }
-
-        .birthday-text {
-          font-size: clamp(1.8rem, 12vw, 3.5rem);
-          line-height: 1.1;
-        }
-
-        .birthday-subtitle {
-          font-size: clamp(1rem, 8vw, 2rem);
-        }
-
-        .age-display {
-          padding: 1rem 1.5rem;
-          margin: 1rem 0;
-        }
-
-        .age-number {
-          font-size: 2rem;
-        }
-
-        .timer-title {
-          font-size: clamp(1.5rem, 10vw, 2.5rem);
-          margin-bottom: 1.5rem;
-        }
-
-        .marriage-timer {
-          grid-template-columns: 1fr 1fr;
-          gap: 0.8rem;
-          margin: 1.5rem 0;
-        }
-
-        .timer-card {
-          padding: 1rem 0.5rem;
-        }
-
-        .timer-number {
-          font-size: 2rem;
-        }
-
-        .timer-label {
-          font-size: 0.7rem;
-        }
-
-        .journey-text {
-          font-size: 1.2rem;
-          text-align: center;
-          margin-top: 1rem;
-        }
-
-        .timeline-content {
-          margin: 0 0 0 2.5rem;
-          padding: 1rem;
-        }
-
-        .timeline-dot {
-          left: 1.5rem;
-          width: 12px;
-          height: 12px;
-        }
-
-        .timeline::before {
-          left: 1.5rem;
-        }
-
-        .timeline-title {
-          font-size: 1.2rem;
-          margin-bottom: 0.8rem;
-        }
-
-        .timeline-description {
-          font-size: 0.85rem;
-          line-height: 1.6;
-        }
-
-        .timeline-date {
-          font-size: 0.8rem;
-          padding: 0.4rem 1rem;
-        }
-
-        .photo-card img {
-          height: 180px;
-        }
-
-        .photo-caption {
-          padding: 0.8rem;
-        }
-
-        .photo-caption h3 {
-          font-size: 1.1rem;
-        }
-
-        .photo-caption p {
-          font-size: 0.8rem;
-        }
-
-        .message-container {
-          padding: 1.5rem;
-          margin: 0.5rem;
-        }
-
-        .message-text {
-          font-size: 0.95rem;
-          line-height: 1.7;
-        }
-
-        .signature {
-          font-size: 1.8rem;
+        50% {
+          transform: scale(1.1);
         }
       }
 
-      /* Large Mobile/Small Tablet (769px - 1024px) */
-      @media (min-width: 769px) and (max-width: 1024px) {
-        .marriage-timer {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 1.5rem;
-        }
-
-        .photo-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-        }
-
-        .timeline-content {
-          margin: 0 1rem;
-        }
+      .birth-info {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        margin-bottom: 30px;
+        opacity: 0.9;
       }
 
-      /* Extra responsive text sizing */
-      @media (max-width: 350px) {
-        .birthday-text {
-          font-size: 1.5rem;
-        }
-
-        .birthday-subtitle {
-          font-size: 0.9rem;
-        }
-
-        .timer-title {
-          font-size: 1.3rem;
-        }
-
-        .marriage-timer {
-          grid-template-columns: 1fr;
-          gap: 0.5rem;
-        }
-
-        .timer-number {
-          font-size: 1.8rem;
-        }
+      .marriage-timer {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        padding: 30px;
+        border-radius: 25px;
+        margin: 30px auto;
+        border: 1px solid var(--glass-border);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
-      /* Scroll Indicator */
-      .scroll-indicator {
+      .timer-title {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        margin-bottom: 25px;
+        color: var(--warm);
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .timer-display {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+        width: 100%;
+        max-width: 600px;
+        justify-items: center;
+      }
+
+      .timer-unit {
+        text-align: center;
+        padding: 20px 15px;
+        background: var(--glass);
+        border-radius: 15px;
+        border: 1px solid var(--glass-border);
+        min-width: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .timer-number {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+      }
+
+      .timer-label {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        opacity: 0.8;
+        margin-top: 5px;
+      }
+
+      .cta-button {
+        padding: 18px 45px;
+        background: var(--gradient-secondary);
+        border: none;
+        border-radius: 50px;
+        color: white;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin: 40px auto 0;
+        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+        display: block;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
+      }
+
+      /* Journey Page */
+      .journey-page {
+        background: var(--gradient-main);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .journey-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .page-title {
+        text-align: center;
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        color: white;
+        margin-bottom: 50px;
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .timeline {
+        position: relative;
+        padding: 20px 0;
+      }
+
+      .timeline::before {
+        content: "";
         position: absolute;
-        bottom: 2rem;
         left: 50%;
         transform: translateX(-50%);
-        animation: bounce 2s infinite;
-        color: var(--warm-gray);
-        font-size: 0.9rem;
-        text-align: center;
-        font-family: "Quicksand", sans-serif;
+        width: 4px;
+        height: 100%;
+        background: var(--glass);
+        border-radius: 2px;
       }
 
+      .timeline-item {
+        position: relative;
+        margin: 50px 0;
+        opacity: 0;
+        animation: slideIn 0.8s ease forwards;
+      }
+
+      @keyframes slideIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      .timeline-content {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        padding: 25px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 500px;
+        border: 1px solid var(--glass-border);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .timeline-date {
+        color: var(--warm);
+        font-weight: 600;
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+        margin-bottom: 10px;
+      }
+
+      .timeline-title {
+        color: white;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .timeline-description {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+        font-size: clamp(0.9rem, 2vw, 1rem);
+      }
+
+      .timeline-image {
+        width: 100%;
+        height: 200px;
+        border-radius: 15px;
+        object-fit: cover;
+        margin-top: 15px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .timeline-image:hover {
+        transform: scale(1.05);
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: var(--primary);
+        border: 4px solid white;
+        border-radius: 50%;
+        top: 30px;
+        z-index: 2;
+        box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+      }
+
+      /* Desktop Timeline Alternating Layout */
+      @media (min-width: 1024px) {
+        .timeline-item:nth-child(odd) .timeline-content {
+          margin-right: auto;
+          margin-left: 0;
+          text-align: left;
+          width: 45%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+          margin-left: auto;
+          margin-right: 0;
+          text-align: right;
+          width: 45%;
+        }
+      }
+
+      /* Medium screens - single column but wider */
+      @media (min-width: 769px) and (max-width: 1023px) {
+        .timeline-content {
+          width: 70%;
+          margin: 0 auto;
+          text-align: left;
+        }
+
+        .timeline::before {
+          left: 50%;
+        }
+
+        .timeline-dot {
+          left: 50%;
+        }
+      }
+
+      /* Gallery Page */
+      .gallery-page {
+        background: var(--gradient-main);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .gallery-item {
+        position: relative;
+        height: 300px;
+        border-radius: 20px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-image {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        color: white;
+        padding: 20px;
+        transform: translateY(100%);
+        transition: all 0.3s ease;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+      }
+
+      .gallery-overlay h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+      }
+
+      /* Messages Page */
+      .messages-page {
+        background: var(--gradient-main);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .messages-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .message-card {
+        background: var(--glass);
+        backdrop-filter: blur(20px);
+        padding: 30px;
+        border-radius: 20px;
+        margin: 30px 0;
+        border: 1px solid var(--glass-border);
+        color: white;
+        transform: scale(0.9);
+        opacity: 0;
+        animation: popIn 0.6s ease forwards;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      @keyframes popIn {
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .message-header {
+        font-size: clamp(1.2rem, 3vw, 1.3rem);
+        font-weight: 600;
+        color: var(--warm);
+        margin-bottom: 15px;
+      }
+
+      .message-text {
+        line-height: 1.7;
+        font-size: clamp(1rem, 2.5vw, 1.1rem);
+      }
+
+      /* Mobile Specific Styles */
       @media (max-width: 768px) {
-        .scroll-indicator {
-          bottom: 1rem;
-          font-size: 0.8rem;
+        .nav-container {
+          gap: 5px;
+          padding: 0 10px;
+        }
+
+        .nav-btn {
+          padding: 10px 16px;
+          font-size: 12px;
+        }
+
+        .page {
+          padding-top: 70px;
+        }
+
+        .home-page {
+          padding: 10px;
+          justify-content: center;
+        }
+
+        .hero-content {
+          width: 100%;
+          padding: 0;
+        }
+
+        .timeline::before {
+          left: 30px;
+        }
+
+        .timeline-dot {
+          left: 30px;
+        }
+
+        .timeline-content {
+          width: calc(100% - 80px);
+          margin-left: 60px !important;
+          margin-right: 0 !important;
+          text-align: left !important;
+        }
+
+        .timer-display {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+          max-width: 400px;
+        }
+
+        .timer-unit {
+          padding: 15px 10px;
+          min-width: 100px;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .marriage-timer {
+          padding: 25px 20px;
+          margin: 25px auto;
+          max-width: 500px;
         }
       }
 
-      @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-          transform: translateX(-50%) translateY(0);
+      @media (max-width: 480px) {
+        .nav-btn {
+          padding: 8px 12px;
+          font-size: 11px;
         }
-        40% {
-          transform: translateX(-50%) translateY(-8px);
+
+        .timeline-content {
+          padding: 20px;
         }
-        60% {
-          transform: translateX(-50%) translateY(-4px);
+
+        .message-card {
+          padding: 20px;
+          margin: 20px 0;
         }
       }
     </style>
   </head>
   <body>
     <!-- Navigation -->
-    <div class="nav">
-      <div class="nav-dot active" data-page="1"></div>
-      <div class="nav-dot" data-page="2"></div>
-      <div class="nav-dot" data-page="3"></div>
-      <div class="nav-dot" data-page="4"></div>
-      <div class="nav-dot" data-page="5"></div>
+    <nav class="nav">
+      <div class="nav-container">
+        <button class="nav-btn active" onclick="showPage('home')">
+          🏠 Home
+        </button>
+        <button class="nav-btn" onclick="showPage('journey')">
+          💕 Journey
+        </button>
+        <button class="nav-btn" onclick="showPage('gallery')">
+          📸 Memories
+        </button>
+        <button class="nav-btn" onclick="showPage('messages')">
+          💌 Love Notes
+        </button>
+      </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+      <div class="home-page">
+        <div class="floating-hearts" id="heartsContainer"></div>
+        <div class="hero-content">
+          <h1 class="birthday-title">Happy Birthday My Gudda! 🎂</h1>
+          <div class="age-display">32</div>
+          <p class="birth-info">Born on July 29, 1993 ✨</p>
+
+          <div class="marriage-timer">
+            <h3 class="timer-title">Time Since We Said "I Do" 💍</h3>
+            <div class="timer-display" id="marriageTimer">
+              <div class="timer-unit">
+                <span class="timer-number" id="years">0</span>
+                <div class="timer-label">Years</div>
+              </div>
+              <div class="timer-unit">
+                <span class="timer-number" id="months">0</span>
+                <div class="timer-label">Months</div>
+              </div>
+              <div class="timer-unit">
+                <span class="timer-number" id="days">0</span>
+                <div class="timer-label">Days</div>
+              </div>
+              <div class="timer-unit">
+                <span class="timer-number" id="hours">0</span>
+                <div class="timer-label">Hours</div>
+              </div>
+            </div>
+          </div>
+
+          <button class="cta-button" onclick="showPage('journey')">
+            Let's Explore Our Journey Together 💕
+          </button>
+        </div>
+      </div>
     </div>
 
-    <!-- Page 1: Welcome -->
-    <section class="page page-1 active" id="page-1">
-      <div class="birthday-text floating">Happy Birthday</div>
-      <div class="birthday-subtitle">My Love, My Gudda 💕</div>
-      <div class="age-display">
-        <div style="color: var(--warm-gray); font-size: 1.1rem">
-          Born: July 29, 1993
-        </div>
-        <div class="age-number">32 Years Young!</div>
-      </div>
-      <div class="birthday-subtitle" style="font-size: 1.5rem">
-        Let's explore our journey together...
-      </div>
-      <button class="explore-btn" onclick="goToPage(2)">
-        Begin Our Story ✨
-      </button>
-      <div class="scroll-indicator">Click the dots to navigate →</div>
-    </section>
+    <!-- Journey Page -->
+    <div class="page" id="journey">
+      <div class="journey-page">
+        <div class="journey-container">
+          <h1 class="page-title">Our Love Story 💕</h1>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">September 5, 2023</div>
+                <h3 class="timeline-title">First Meeting - Delhi ✈️</h3>
+                <p class="timeline-description">
+                  When we first met in Delhi, it felt like destiny. From Boston
+                  to Dallas, Delhi to our hearts, those first 6 days were
+                  absolute gold. The beginning of our beautiful journey from
+                  long-distance to a lifetime together. My heart knew then -
+                  this was it! 💕
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=200&fit=crop"
+                  alt="First Meeting"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
 
-    <!-- Page 2: Marriage Timer -->
-    <section class="page page-2" id="page-2">
-      <div class="timer-container">
-        <div class="timer-title">Our Beautiful Journey as Husband & Wife</div>
-        <div class="marriage-timer" id="marriageTimer">
-          <div class="timer-card">
-            <span class="timer-number" id="years">0</span>
-            <span class="timer-label">Years</span>
-          </div>
-          <div class="timer-card">
-            <span class="timer-number" id="months">0</span>
-            <span class="timer-label">Months</span>
-          </div>
-          <div class="timer-card">
-            <span class="timer-number" id="days">0</span>
-            <span class="timer-label">Days</span>
-          </div>
-          <div class="timer-card">
-            <span class="timer-number" id="hours">0</span>
-            <span class="timer-label">Hours</span>
-          </div>
-        </div>
-        <div class="journey-text">
-          From Delhi to Nipani, from Boston to Dallas - every mile was worth it!
-          💕
-        </div>
-      </div>
-    </section>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">December 17, 2023</div>
+                <h3 class="timeline-title">
+                  Roka Ceremony - Virtual to Reality 💍
+                </h3>
+                <p class="timeline-description">
+                  Our families became one big happy squad! From epic Delhi
+                  meetings to crafting our own '2 States' saga over screens, we
+                  aced this long-distance family merger like pros. The beginning
+                  of our forever journey! 🎉
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1587271636175-90d58cdad458?w=400&h=200&fit=crop"
+                  alt="Roka Ceremony"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
 
-    <!-- Page 3: Our Story Timeline -->
-    <section class="page page-3" id="page-3">
-      <div class="story-title">Our Love Story</div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">September 5, 2023</div>
-            <h3 class="timeline-title">First Meeting - Delhi Magic ✨</h3>
-            <p class="timeline-description">
-              When Gudda first met his Gudiya in Delhi, it felt like destiny.
-              Those first 6 days were absolute gold! From the moment we met, I
-              knew my heart had found its home. The beginning of our beautiful
-              "2 States" love story! 💕
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">March 2024</div>
+                <h3 class="timeline-title">Pre-Wedding Photoshoot ✨</h3>
+                <p class="timeline-description">
+                  Capturing our love before the big day! Every frame told our
+                  story - from the laughter to the stolen glances, from Gudda to
+                  Gudiya moments. These photos became the perfect prelude to our
+                  wedding celebrations! 📸
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop"
+                  alt="Pre-Wedding"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
 
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">December 17, 2023</div>
-            <h3 class="timeline-title">Roka - Families Become One 🎉</h3>
-            <p class="timeline-description">
-              Our virtual roka ceremony! From Delhi to Nipani, our families
-              became one big happy squad. We aced this long-distance family
-              merger like pros - impressing in-laws across miles and time zones!
-              Life became a whirlwind of love and laughter. 🧿
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">April 1, 2024</div>
+                <h3 class="timeline-title">Mehendi - Stories in Henna ✋</h3>
+                <p class="timeline-description">
+                  From Delhi to Nipani, Boston to Dallas - our journey unfolded
+                  in every intricate detail. Our names, our special PR logo,
+                  "Gudde ki Gudiya" and "Gudiya ka Gudda" - love truly is in the
+                  details. The henna deepened, and so did my love! 🧿
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=200&fit=crop"
+                  alt="Mehendi"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
 
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">April 1, 2024</div>
-            <h3 class="timeline-title">Mehendi - Henna Stories 🎨</h3>
-            <p class="timeline-description">
-              The mehendi on my hands told the story of us - from Delhi to
-              Nipani, Boston to Dallas, our journey unfolded in every intricate
-              detail. The places that built us, the families who blessed us, our
-              cherished roka memories, our names, our special PR logo, and even
-              our favorite wallpaper—all woven into this magical design. But the
-              sweetest part? Our little nicknames—"Gudde ki Gudiya" on my hands
-              and "Gudiya ka Gudda" on his—because love is in the details. And
-              just as the mehendi deepened in color, so did my love! 💕
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">April 2, 2024</div>
+                <h3 class="timeline-title">
+                  First Time at His Home & Sagai 🏠
+                </h3>
+                <p class="timeline-description">
+                  Walking into his home, his family made it mine too. Mummy Papa
+                  welcomed me with open hearts, Didi Jiju with so much love, and
+                  Ridhvi & Praavi shouting 'Mami! Mami!' From that day on, I
+                  wasn't just a guest—I was theirs. Our sagai sealed it with
+                  promises! 💕
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=200&fit=crop"
+                  alt="New Home"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
 
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">April 2, 2024</div>
-            <h3 class="timeline-title">First Visit to Gudda's Home 🏠</h3>
-            <p class="timeline-description">
-              When Gudiya walked into Gudda's home in Nipani, his family made it
-              mine too! Mummy Papa's open hearts, Didi Jiju's love, and Ridhvi
-              and Praavi shouting 'Mami! Mami!' From that day, I wasn't just a
-              guest - I was theirs! 💝
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">April 3, 2024</div>
+                <h3 class="timeline-title">Haldi - North Meets South 🌺</h3>
+                <p class="timeline-description">
+                  Our haldi was pure carnival magic! Men in lungis, women in
+                  silk sarees, and my North Indian family embracing South Indian
+                  vibes with full enthusiasm! Epic games, endless dancing, and
+                  my favorite win - hula-hooping him into my love! 💛
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=200&fit=crop"
+                  alt="Haldi Ceremony"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
 
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">April 2, 2024</div>
-            <h3 class="timeline-title">Sagai - Promises Made 💍</h3>
-            <p class="timeline-description">
-              Our sagai was pure magic! His family adorned me with love, my
-              family showered him with blessings. From the tilak to unspoken
-              promises, every moment was stepping stone to our forever! The
-              beginning of our lifetime together. ✨
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">April 3, 2024 Evening</div>
+                <h3 class="timeline-title">Sangeet & Ring Exchange 💍</h3>
+                <p class="timeline-description">
+                  After South Indian vibes, we switched to vibrant North Indian
+                  celebration! Prithvi's performance had my heart, but our
+                  couple performance truly stole the show. The chemistry,
+                  laughter, and love we shared on stage made it unforgettable!
+                  🎭
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&h=200&fit=crop"
+                  alt="Sangeet"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
 
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">April 3, 2024</div>
-            <h3 class="timeline-title">
-              Haldi - North Meets South Carnival 💛
-            </h3>
-            <p class="timeline-description">
-              Our haldi was nothing short of a carnival! Men in lungis, women in
-              silk sarees - even my North Indian family embraced the South
-              Indian vibe! Epic games, endless dancing, and breathtaking decor.
-              Pure magic! 🤭
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">April 3, 2024 (Evening)</div>
-            <h3 class="timeline-title">Sangeet & Engagement Night 💃</h3>
-            <p class="timeline-description">
-              After South Indian vibes, we switched to vibrant North Indian
-              celebration! Gudda's performance had my heart, but our couple
-              performance stole the show. The energy, chemistry, and laughter on
-              stage - unforgettable! 💛
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <div class="timeline-date">April 4, 2024</div>
-            <h3 class="timeline-title">Wedding Day - Forever Begins 👰‍♀️🤵‍♂️</h3>
-            <p class="timeline-description">
-              Draped in red, heart full of love, Gudiya stepped into forever
-              with her Gudda. With every phera, carrying family's love and
-              blessings. With sindoor in hair and his hand in mine, love became
-              a promise, a journey, a forever! 😘💕🧿
-            </p>
-          </div>
-          <div class="timeline-dot"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Page 4: Photo Gallery -->
-    <section class="page page-4" id="page-4">
-      <div class="gallery-title">Our Adventures</div>
-      <div class="photo-grid">
-        <div class="photo-card bw">
-          <img
-            src="https://images.unsplash.com/photo-1502780402662-acc01917286e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            alt="Pre-wedding"
-          />
-          <div class="photo-caption">
-            <h3>Before the Big Day</h3>
-            <p>
-              Pre-wedding photoshoot magic! Capturing our love before we said "I
-              do" ✨
-            </p>
-          </div>
-        </div>
-
-        <div class="photo-card vintage">
-          <img
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            alt="Arcade Birthday"
-          />
-          <div class="photo-caption">
-            <h3>Gudda's Arcade Adventure</h3>
-            <p>
-              Playing all those childhood games - the perfect birthday
-              celebration! 🎮
-            </p>
-          </div>
-        </div>
-
-        <div class="photo-card bw">
-          <img
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            alt="Arkansas"
-          />
-          <div class="photo-caption">
-            <h3>Arkansas Hot Springs</h3>
-            <p>Relaxing together in nature's warmth and tranquility 🌊</p>
-          </div>
-        </div>
-
-        <div class="photo-card vintage">
-          <img
-            src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            alt="San Antonio"
-          />
-          <div class="photo-caption">
-            <h3>San Antonio Birthday Trip</h3>
-            <p>Celebrating Gudiya's December 2024 birthday in style! 🏰</p>
-          </div>
-        </div>
-
-        <div class="photo-card bw">
-          <img
-            src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            alt="Anniversary"
-          />
-          <div class="photo-caption">
-            <h3>San Diego & LA</h3>
-            <p>
-              Our first anniversary adventure - making memories under the
-              California sun! ☀️
-            </p>
-          </div>
-        </div>
-
-        <div class="photo-card vintage">
-          <img
-            src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-            alt="Long Distance"
-          />
-          <div class="photo-caption">
-            <h3>Worth Every Airport Wait</h3>
-            <p>
-              Our long-distance love story - bridging miles with love and WiFi!
-              ✈️💕
-            </p>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">April 4, 2024</div>
+                <h3 class="timeline-title">
+                  Wedding Day - Our Forever Begins 👰‍♀️🤵‍♂️
+                </h3>
+                <p class="timeline-description">
+                  Draped in red, with a heart full of love, I stepped into a new
+                  life with you. The day I left the home that raised me to build
+                  the home we would share. With sindoor in my hair and your hand
+                  in mine, I became yours completely. Our forever began! ❤️✨
+                </p>
+                <img
+                  src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=200&fit=crop"
+                  alt="Wedding"
+                  class="timeline-image"
+                />
+              </div>
+              <div class="timeline-dot"></div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Page 5: Birthday Message -->
-    <section class="page page-5" id="page-5">
-      <div class="message-container">
-        <div class="message-title">Happy Birthday, My Gudda! 🎂</div>
-        <div class="message-text">
-          To my love, my jaan, my everything - you've made every day an
-          adventure worth living. From our long-distance courtship across Delhi,
-          Nipani, Boston, and Dallas, to building our beautiful life together,
-          you've been my constant source of joy and laughter.
+    <!-- Gallery Page -->
+    <div class="page" id="gallery">
+      <div class="gallery-page">
+        <div class="gallery-container">
+          <h1 class="page-title">Our Beautiful Memories 📸</h1>
+          <div class="gallery-grid">
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=300&fit=crop"
+                alt="Travel Together"
+                class="gallery-image"
+              />
+              <div class="gallery-overlay">
+                <h3>Adventures Together</h3>
+                <p>
+                  From Arkansas hot springs to San Antonio birthday trips! 🧿
+                </p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=400&h=300&fit=crop"
+                alt="Birthday Celebration"
+                class="gallery-image"
+              />
+              <div class="gallery-overlay">
+                <h3>Arcade Birthday Fun</h3>
+                <p>Playing all the childhood games we love! 🎮</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop"
+                alt="Pre Wedding"
+                class="gallery-image"
+              />
+              <div class="gallery-overlay">
+                <h3>Pre-Wedding Magic</h3>
+                <p>Capturing our love before the big day! 💕</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop"
+                alt="San Diego Trip"
+                class="gallery-image"
+              />
+              <div class="gallery-overlay">
+                <h3>First Anniversary Trip</h3>
+                <p>San Diego & LA - celebrating one year! 🏖️</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=300&fit=crop"
+                alt="Wedding Ceremonies"
+                class="gallery-image"
+              />
+              <div class="gallery-overlay">
+                <h3>Wedding Celebrations</h3>
+                <p>From mehendi to wedding - every moment was magical! ✨</p>
+              </div>
+            </div>
+            <div class="gallery-item">
+              <img
+                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=300&fit=crop"
+                alt="Together Forever"
+                class="gallery-image"
+              />
+              <div class="gallery-overlay">
+                <h3>Gudda & Gudiya</h3>
+                <p>
+                  From airport waits to forever waits - worth every mile! 💕
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="message-text">
-          Those airport waits, video call mishaps, and virtual dates led us to
-          this beautiful forever. You're not just my husband, you're my best
-          friend, my partner in crime, and my favorite person in the whole
-          world.
-        </div>
-        <div class="message-text">
-          Here's to another year of your amazing self, more arcade adventures,
-          more travel memories, and endless moments of happiness together.
-          You're worth every mile, every wait, every moment!
-        </div>
-        <div class="signature">Forever yours, Your Gudiya 💕</div>
       </div>
-    </section>
+    </div>
+
+    <!-- Messages Page -->
+    <div class="page" id="messages">
+      <div class="messages-page">
+        <div class="messages-container">
+          <h1 class="page-title">Love Notes to My Gudda 💌</h1>
+
+          <div class="message-card">
+            <div class="message-header">Happy 32nd Birthday, My Love! 🎂</div>
+            <div class="message-text">
+              From that first meeting in Delhi to now, every day with you has
+              been a blessing. You're not just my husband, you're my best
+              friend, my adventure buddy, and my home. Here's to another year of
+              love, laughter, and countless memories together!
+            </div>
+          </div>
+
+          <div class="message-card">
+            <div class="message-header">From Gudiya to Her Gudda 💕</div>
+            <div class="message-text">
+              Those airport waits, video calls across time zones, and
+              long-distance love - it was all worth every mile to get to where
+              we are today. You make every ordinary moment extraordinary, and
+              I'm so grateful to call you mine!
+            </div>
+          </div>
+
+          <div class="message-card">
+            <div class="message-header">Our Journey So Far ✨</div>
+            <div class="message-text">
+              From Boston to Dallas, Delhi to Nipani, arcade games to hot spring
+              adventures - we've created the most beautiful story together. I
+              love how we've grown together, laughed together, and built this
+              amazing life side by side.
+            </div>
+          </div>
+
+          <div class="message-card">
+            <div class="message-header">Forever and Always 🧿</div>
+            <div class="message-text">
+              As we celebrate your special day, I'm reminded of how lucky I am
+              to have you. Thank you for being the most wonderful husband, for
+              making me laugh every day, and for loving me just as I am. Here's
+              to many more birthdays together, my jaan!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script>
-      let currentPage = 1;
-      const totalPages = 5;
-
-      // Navigation functionality
-      function goToPage(pageNum) {
+      // Page Navigation
+      function showPage(pageId) {
         // Hide all pages
         document.querySelectorAll(".page").forEach((page) => {
           page.classList.remove("active");
         });
 
-        // Remove active state from all nav dots
-        document.querySelectorAll(".nav-dot").forEach((dot) => {
-          dot.classList.remove("active");
+        // Show selected page
+        document.getElementById(pageId).classList.add("active");
+
+        // Update navigation buttons
+        document.querySelectorAll(".nav-btn").forEach((btn) => {
+          btn.classList.remove("active");
         });
-
-        // Show selected page and activate corresponding dot
-        const targetPage = document.getElementById(`page-${pageNum}`);
-        const targetDot = document.querySelector(`[data-page="${pageNum}"]`);
-
-        if (targetPage && targetDot) {
-          targetPage.classList.add("active");
-          targetDot.classList.add("active");
-          currentPage = pageNum;
-
-          // Trigger timeline animation for page 3
-          if (pageNum === 3) {
-            setTimeout(animateTimeline, 500);
-          }
-        }
+        event.target.classList.add("active");
       }
-
-      // Navigation dots click handlers
-      document.querySelectorAll(".nav-dot").forEach((dot) => {
-        dot.addEventListener("click", () => {
-          const pageNum = parseInt(dot.getAttribute("data-page"));
-          goToPage(pageNum);
-        });
-      });
-
-      // Keyboard navigation (only arrow keys, no scroll wheel)
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") {
-          e.preventDefault();
-          if (currentPage < totalPages) {
-            goToPage(currentPage + 1);
-          }
-        } else if (e.key === "ArrowLeft") {
-          e.preventDefault();
-          if (currentPage > 1) {
-            goToPage(currentPage - 1);
-          }
-        }
-      });
 
       // Marriage Timer
       function updateMarriageTimer() {
-        const weddingDate = new Date("2024-04-04T00:00:00");
+        const marriageDate = new Date("2024-04-04T00:00:00");
         const now = new Date();
+        const diff = now - marriageDate;
 
-        const diffTime = now - weddingDate;
-
-        const years = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
         const months = Math.floor(
-          (diffTime % (1000 * 60 * 60 * 24 * 365.25)) /
-            (1000 * 60 * 60 * 24 * 30.44)
+          (diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44)
         );
         const days = Math.floor(
-          (diffTime % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24)
+          (diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24)
         );
         const hours = Math.floor(
-          (diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
         );
 
         document.getElementById("years").textContent = years;
@@ -1234,100 +1063,406 @@
         document.getElementById("hours").textContent = hours;
       }
 
-      // Timeline animation
+      // Floating Hearts Animation
+      function createFloatingHearts() {
+        const heartsContainer = document.getElementById("heartsContainer");
+        const hearts = [
+          "💕",
+          "💖",
+          "💗",
+          "💝",
+          "💘",
+          "❤️",
+          "🧡",
+          "💛",
+          "💚",
+          "💙",
+          "💜",
+        ];
+
+        function addHeart() {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.fontSize = Math.random() * 15 + 15 + "px";
+          heart.style.animationDuration = Math.random() * 4 + 6 + "s";
+          heart.style.animationDelay = Math.random() * 2 + "s";
+
+          heartsContainer.appendChild(heart);
+
+          setTimeout(() => {
+            if (heart.parentNode) {
+              heart.parentNode.removeChild(heart);
+            }
+          }, 10000);
+        }
+
+        // Create hearts periodically
+        setInterval(addHeart, 1200);
+      }
+
+      // Timeline Animation
       function animateTimeline() {
         const timelineItems = document.querySelectorAll(".timeline-item");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.style.opacity = "1";
+                  entry.target.style.transform = "translateY(0)";
+                }, index * 200);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
         timelineItems.forEach((item, index) => {
-          setTimeout(() => {
-            item.classList.add("visible");
-          }, index * 300);
+          item.style.opacity = "0";
+          item.style.transform = "translateY(30px)";
+          item.style.transition = "all 0.6s ease";
+          item.style.animationDelay = index * 0.2 + "s";
+          observer.observe(item);
         });
       }
 
-      // Initialize
-      updateMarriageTimer();
-      setInterval(updateMarriageTimer, 3600000);
+      // Message Cards Animation
+      function animateMessageCards() {
+        const messageCards = document.querySelectorAll(".message-card");
 
-      // Enhanced touch/swipe support for mobile
-      let startX = 0;
-      let startY = 0;
-      let isScrolling = false;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.style.animationDelay = index * 0.2 + "s";
+                  entry.target.style.transform = "scale(1)";
+                  entry.target.style.opacity = "1";
+                }, index * 150);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
 
-      document.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        isScrolling = false;
-      });
+        messageCards.forEach((card) => {
+          observer.observe(card);
+        });
+      }
 
-      document.addEventListener("touchmove", (e) => {
-        // Detect if user is scrolling vertically
-        const currentY = e.touches[0].clientY;
-        const diffY = Math.abs(startY - currentY);
-        if (diffY > 10) {
-          isScrolling = true;
-        }
-      });
+      // Gallery Animation
+      function animateGallery() {
+        const galleryItems = document.querySelectorAll(".gallery-item");
 
-      document.addEventListener("touchend", (e) => {
-        // Only trigger page navigation if not scrolling
-        if (!isScrolling) {
-          const endX = e.changedTouches[0].clientX;
-          const endY = e.changedTouches[0].clientY;
-          const diffX = startX - endX;
-          const diffY = startY - endY;
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.style.opacity = "1";
+                  entry.target.style.transform = "translateY(0)";
+                }, index * 100);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
 
-          // Only trigger if horizontal swipe is greater than vertical and significant
-          if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 80) {
-            if (diffX > 0 && currentPage < totalPages) {
-              goToPage(currentPage + 1);
-            } else if (diffX < 0 && currentPage > 1) {
-              goToPage(currentPage - 1);
+        galleryItems.forEach((item, index) => {
+          item.style.opacity = "0";
+          item.style.transform = "translateY(30px)";
+          item.style.transition = "all 0.6s ease";
+          observer.observe(item);
+        });
+      }
+
+      // Interactive Image Effects
+      function addImageEffects() {
+        const timelineImages = document.querySelectorAll(".timeline-image");
+
+        timelineImages.forEach((img) => {
+          img.addEventListener("click", function () {
+            // Simple zoom effect
+            this.style.position = "fixed";
+            this.style.top = "50%";
+            this.style.left = "50%";
+            this.style.transform = "translate(-50%, -50%) scale(1.8)";
+            this.style.zIndex = "9999";
+            this.style.transition = "all 0.4s ease";
+            this.style.borderRadius = "20px";
+            this.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.5)";
+
+            // Create overlay
+            const overlay = document.createElement("div");
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.background = "rgba(0, 0, 0, 0.8)";
+            overlay.style.zIndex = "9998";
+            overlay.style.cursor = "pointer";
+            overlay.style.backdropFilter = "blur(10px)";
+
+            document.body.appendChild(overlay);
+
+            // Close on click
+            const closeModal = () => {
+              this.style.position = "relative";
+              this.style.top = "auto";
+              this.style.left = "auto";
+              this.style.transform = "scale(1)";
+              this.style.zIndex = "auto";
+              this.style.boxShadow = "none";
+              if (document.body.contains(overlay)) {
+                document.body.removeChild(overlay);
+              }
+            };
+
+            overlay.addEventListener("click", closeModal);
+            setTimeout(() => {
+              this.addEventListener("click", closeModal, { once: true });
+            }, 100);
+          });
+        });
+      }
+
+      // Add sparkle effect on hover
+      function addSparkleEffect() {
+        const sparkleElements = document.querySelectorAll(
+          ".timeline-content, .gallery-item, .message-card"
+        );
+
+        sparkleElements.forEach((element) => {
+          element.addEventListener("mouseenter", function () {
+            if (window.innerWidth > 768) {
+              // Only on desktop
+              createSparkles(this);
             }
+          });
+        });
+      }
+
+      function createSparkles(element) {
+        const sparkles = ["✨", "⭐", "🌟", "💫"];
+        const rect = element.getBoundingClientRect();
+
+        for (let i = 0; i < 3; i++) {
+          const sparkle = document.createElement("div");
+          sparkle.textContent =
+            sparkles[Math.floor(Math.random() * sparkles.length)];
+          sparkle.style.position = "fixed";
+          sparkle.style.left = Math.random() * rect.width + rect.left + "px";
+          sparkle.style.top = Math.random() * rect.height + rect.top + "px";
+          sparkle.style.fontSize = "16px";
+          sparkle.style.pointerEvents = "none";
+          sparkle.style.zIndex = "1000";
+          sparkle.style.animation = "sparkleFloat 1.5s ease-out forwards";
+
+          document.body.appendChild(sparkle);
+
+          setTimeout(() => {
+            if (sparkle.parentNode) {
+              sparkle.parentNode.removeChild(sparkle);
+            }
+          }, 1500);
+        }
+      }
+
+      // Add CSS for sparkle animation
+      const sparkleStyle = document.createElement("style");
+      sparkleStyle.textContent = `
+            @keyframes sparkleFloat {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) scale(0);
+                }
+                50% {
+                    opacity: 1;
+                    transform: translateY(-20px) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(-40px) scale(0);
+                }
+            }
+        `;
+      document.head.appendChild(sparkleStyle);
+
+      // Confetti Effect
+      function createConfetti() {
+        const colors = ["#FF6B9D", "#FF8E53", "#4ECDC4", "#A8E6CF", "#FFD93D"];
+        const confettiCount = 60;
+
+        for (let i = 0; i < confettiCount; i++) {
+          const confetti = document.createElement("div");
+          confetti.style.position = "fixed";
+          confetti.style.left = Math.random() * 100 + "%";
+          confetti.style.top = "-10px";
+          confetti.style.width = Math.random() * 10 + 5 + "px";
+          confetti.style.height = Math.random() * 10 + 5 + "px";
+          confetti.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.borderRadius = Math.random() > 0.5 ? "50%" : "0";
+          confetti.style.transform = "rotate(" + Math.random() * 360 + "deg)";
+          confetti.style.animation = `confettiFall ${
+            Math.random() * 2 + 3
+          }s linear forwards`;
+          confetti.style.zIndex = "1000";
+          confetti.style.pointerEvents = "none";
+
+          document.body.appendChild(confetti);
+
+          setTimeout(() => {
+            if (confetti.parentNode) {
+              confetti.parentNode.removeChild(confetti);
+            }
+          }, 5000);
+        }
+      }
+
+      // Add confetti animation CSS
+      const confettiStyle = document.createElement("style");
+      confettiStyle.textContent = `
+            @keyframes confettiFall {
+                to {
+                    transform: translateY(100vh) rotate(720deg);
+                    opacity: 0;
+                }
+            }
+        `;
+      document.head.appendChild(confettiStyle);
+
+      // Handle timeline layout for different screen sizes
+      function handleTimelineLayout() {
+        const timelineItems = document.querySelectorAll(".timeline-item");
+
+        if (window.innerWidth <= 768) {
+          // Mobile layout - all items on one side
+          timelineItems.forEach((item) => {
+            const content = item.querySelector(".timeline-content");
+            content.style.width = "calc(100% - 70px)";
+            content.style.marginLeft = "50px";
+            content.style.marginRight = "0";
+            content.style.textAlign = "left";
+          });
+        } else if (window.innerWidth >= 769 && window.innerWidth <= 1023) {
+          // Medium screens - centered single column
+          timelineItems.forEach((item) => {
+            const content = item.querySelector(".timeline-content");
+            content.style.width = "70%";
+            content.style.margin = "0 auto";
+            content.style.textAlign = "left";
+          });
+        } else {
+          // Large desktop layout - alternating sides
+          timelineItems.forEach((item, index) => {
+            const content = item.querySelector(".timeline-content");
+            content.style.width = "45%";
+            content.style.maxWidth = "500px";
+
+            if ((index + 1) % 2 === 1) {
+              // Odd items (1st, 3rd, 5th, etc.) - Left side
+              content.style.marginRight = "auto";
+              content.style.marginLeft = "0";
+              content.style.textAlign = "left";
+            } else {
+              // Even items (2nd, 4th, 6th, etc.) - Right side
+              content.style.marginLeft = "auto";
+              content.style.marginRight = "0";
+              content.style.textAlign = "right";
+            }
+          });
+        }
+      }
+
+      // Initialize everything when page loads
+      document.addEventListener("DOMContentLoaded", function () {
+        updateMarriageTimer();
+        setInterval(updateMarriageTimer, 3600000); // Update every hour
+
+        createFloatingHearts();
+        animateTimeline();
+        animateMessageCards();
+        animateGallery();
+        addImageEffects();
+        addSparkleEffect();
+        handleTimelineLayout();
+
+        // Add birthday confetti effect after a delay
+        setTimeout(() => {
+          createConfetti();
+        }, 1500);
+
+        // Add more confetti periodically on home page
+        setInterval(() => {
+          if (document.getElementById("home").classList.contains("active")) {
+            createConfetti();
           }
+        }, 10000);
+      });
+
+      // Handle window resize
+      window.addEventListener("resize", function () {
+        handleTimelineLayout();
+      });
+
+      // Add keyboard navigation
+      document.addEventListener("keydown", function (e) {
+        const pages = ["home", "journey", "gallery", "messages"];
+        const currentPage = document.querySelector(".page.active").id;
+        const currentIndex = pages.indexOf(currentPage);
+
+        if (e.key === "ArrowRight" && currentIndex < pages.length - 1) {
+          const nextBtn =
+            document.querySelectorAll(".nav-btn")[currentIndex + 1];
+          nextBtn.click();
+        } else if (e.key === "ArrowLeft" && currentIndex > 0) {
+          const prevBtn =
+            document.querySelectorAll(".nav-btn")[currentIndex - 1];
+          prevBtn.click();
         }
       });
 
-      // Add interactive effects for photo cards
-      document.querySelectorAll(".photo-card").forEach((card) => {
-        card.addEventListener("click", function () {
-          this.style.transform = "translateY(-12px) scale(1.02)";
-          setTimeout(() => {
-            this.style.transform = "";
-          }, 200);
-        });
+      // Add touch gesture support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      document.addEventListener("touchstart", function (e) {
+        touchStartX = e.changedTouches[0].screenX;
       });
 
-      // Scroll to top when switching pages to ensure proper display
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      document.addEventListener("touchend", function (e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+
+      function handleSwipe() {
+        const swipeThreshold = 50;
+        const pages = ["home", "journey", "gallery", "messages"];
+        const currentPage = document.querySelector(".page.active").id;
+        const currentIndex = pages.indexOf(currentPage);
+
+        if (
+          touchEndX < touchStartX - swipeThreshold &&
+          currentIndex < pages.length - 1
+        ) {
+          // Swipe left - next page
+          const nextBtn =
+            document.querySelectorAll(".nav-btn")[currentIndex + 1];
+          nextBtn.click();
+        }
+
+        if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+          // Swipe right - previous page
+          const prevBtn =
+            document.querySelectorAll(".nav-btn")[currentIndex - 1];
+          prevBtn.click();
+        }
       }
-
-      // Override the goToPage function to include scroll to top
-      const originalGoToPage = goToPage;
-      goToPage = function (pageNum) {
-        scrollToTop();
-        setTimeout(() => {
-          originalGoToPage(pageNum);
-        }, 100);
-      };
-
-      // Prevent wheel events from interfering with page navigation
-      document.addEventListener(
-        "wheel",
-        (e) => {
-          // Only prevent default on pages 1, 2, and 5 (non-scrollable pages)
-          if (currentPage === 1 || currentPage === 2 || currentPage === 5) {
-            e.preventDefault();
-          }
-        },
-        { passive: false }
-      );
-
-      // Ensure proper display of timeline and gallery pages
-      document.querySelectorAll(".page-3, .page-4").forEach((page) => {
-        page.style.scrollBehavior = "smooth";
-        page.style.overflowY = "auto";
-      });
     </script>
   </body>
 </html>
