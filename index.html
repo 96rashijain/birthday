@@ -1540,46 +1540,6 @@
             }, 100);
           });
         });
-
-        // Heart photo placeholder click effect
-        heartPhotos.forEach((photo, index) => {
-          photo.addEventListener("click", function () {
-            // Create a gentle pulse effect for placeholder photos
-            this.style.animation = "pulse 0.6s ease";
-
-            // Show a message for adding photos
-            const message = document.createElement("div");
-            message.textContent = `Photo slot ${
-              index + 1
-            } - Ready for your memory! 📸`;
-            message.style.position = "fixed";
-            message.style.top = "50%";
-            message.style.left = "50%";
-            message.style.transform = "translate(-50%, -50%)";
-            message.style.background = "rgba(255, 107, 157, 0.95)";
-            message.style.color = "white";
-            message.style.padding = "15px 25px";
-            message.style.borderRadius = "25px";
-            message.style.fontSize = "16px";
-            message.style.fontWeight = "600";
-            message.style.zIndex = "9999";
-            message.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.3)";
-            message.style.animation = "fadeIn 0.3s ease";
-
-            document.body.appendChild(message);
-
-            setTimeout(() => {
-              if (document.body.contains(message)) {
-                message.style.animation = "fadeOut 0.3s ease";
-                setTimeout(() => {
-                  if (document.body.contains(message)) {
-                    document.body.removeChild(message);
-                  }
-                }, 300);
-              }
-            }, 2000);
-          });
-        });
       }
 
       // Add sparkle effect on hover - Updated for heart collage
