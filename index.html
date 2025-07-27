@@ -1,1280 +1,1117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy 32nd Birthday Prithvi! 🎂</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --primary: #ff6b9d;
-        --secondary: #ff8e53;
-        --accent: #4ecdc4;
-        --purple: #a8e6cf;
-        --warm: #ffd93d;
-        --gradient-main: linear-gradient(
-          135deg,
-          #667eea 0%,
-          #764ba2 50%,
-          #f093fb 100%
-        );
-        --gradient-secondary: linear-gradient(135deg, #ff6b9d 0%, #4ecdc4 100%);
-        --gradient-tertiary: linear-gradient(135deg, #a8e6cf 0%, #ffd93d 100%);
-        --dark: #2c3e50;
-        --light: #ffffff;
-        --glass: rgba(255, 255, 255, 0.1);
-        --glass-border: rgba(255, 255, 255, 0.2);
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        line-height: 1.6;
-        overflow-x: hidden;
-        background: var(--gradient-main);
-        min-height: 100vh;
-      }
-
-      /* Navigation */
-      .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--glass-border);
-        padding: 15px 0;
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 0 20px;
-      }
-
-      .nav-btn {
-        padding: 12px 24px;
-        background: var(--glass);
-        backdrop-filter: blur(10px);
-        border: 1px solid var(--glass-border);
-        border-radius: 30px;
-        color: white;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-      }
-
-      .nav-btn:hover {
-        background: var(--primary);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
-      }
-
-      .nav-btn.active {
-        background: var(--primary);
-        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
-      }
-
-      /* Page Transitions */
-      .page {
-        display: none;
-        min-height: 100vh;
-        animation: fadeIn 0.8s ease-in-out;
-        padding-top: 80px;
-      }
-
-      .page.active {
-        display: block;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+        
+        :root {
+            --primary: #FF6B9D;
+            --secondary: #FF8E53;
+            --accent: #4ECDC4;
+            --purple: #A8E6CF;
+            --warm: #FFD93D;
+            --gradient-main: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-secondary: linear-gradient(135deg, #FF6B9D 0%, #4ECDC4 100%);
+            --gradient-tertiary: linear-gradient(135deg, #A8E6CF 0%, #FFD93D 100%);
+            --dark: #2c3e50;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
-      }
-
-      /* Home Page */
-      .home-page {
-        background: var(--gradient-main);
-        background-size: 400% 400%;
-        animation: gradientShift 10s ease infinite;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        text-align: center;
-        color: white;
-        position: relative;
-        overflow: hidden;
-        padding: 20px;
-        box-sizing: border-box;
-      }
-
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--gradient-main);
+            min-height: 100vh;
         }
-        50% {
-          background-position: 100% 50%;
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 0;
         }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      .floating-hearts {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .heart {
-        position: absolute;
-        color: rgba(255, 255, 255, 0.4);
-        animation: float 8s infinite ease-in-out;
-        font-size: 20px;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
-        }
-        10%,
-        90% {
-          opacity: 1;
-        }
-        50% {
-          transform: translateY(-100px) rotate(180deg);
-        }
-      }
-
-      .hero-content {
-        z-index: 2;
-        position: relative;
-        max-width: 900px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto;
-      }
-
-      .birthday-title {
-        font-family: "Dancing Script", cursive;
-        font-size: clamp(2.5rem, 6vw, 4rem);
-        font-weight: 700;
-        margin-bottom: 20px;
-        animation: bounceIn 1s ease-out;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-      }
-
-      @keyframes bounceIn {
-        0% {
-          transform: scale(0.3);
-          opacity: 0;
-        }
-        50% {
-          transform: scale(1.05);
-        }
-        70% {
-          transform: scale(0.9);
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      .age-display {
-        font-size: clamp(4rem, 12vw, 8rem);
-        font-weight: 700;
-        background: var(--gradient-secondary);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin: 20px 0;
-        animation: pulse 2s infinite;
-        text-shadow: 0 0 30px rgba(255, 107, 157, 0.5);
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.1);
-        }
-      }
-
-      .birth-info {
-        font-size: clamp(1rem, 2.5vw, 1.3rem);
-        margin-bottom: 30px;
-        opacity: 0.9;
-      }
-
-      .marriage-timer {
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        padding: 30px;
-        border-radius: 25px;
-        margin: 30px auto;
-        border: 1px solid var(--glass-border);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 700px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .timer-title {
-        font-size: clamp(1.2rem, 3vw, 1.5rem);
-        margin-bottom: 25px;
-        color: var(--warm);
-        font-weight: 600;
-        text-align: center;
-      }
-
-      .timer-display {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 20px;
-        width: 100%;
-        max-width: 600px;
-        justify-items: center;
-      }
-
-      .timer-unit {
-        text-align: center;
-        padding: 20px 15px;
-        background: var(--glass);
-        border-radius: 15px;
-        border: 1px solid var(--glass-border);
-        min-width: 120px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .timer-number {
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
-        font-weight: 700;
-        color: var(--accent);
-        display: block;
-      }
-
-      .timer-label {
-        font-size: clamp(0.8rem, 2vw, 0.9rem);
-        opacity: 0.8;
-        margin-top: 5px;
-      }
-
-      .cta-button {
-        padding: 18px 45px;
-        background: var(--gradient-secondary);
-        border: none;
-        border-radius: 50px;
-        color: white;
-        font-size: clamp(1rem, 2.5vw, 1.2rem);
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin: 40px auto 0;
-        box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
-        display: block;
-      }
-
-      .cta-button:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
-      }
-
-      /* Journey Page */
-      .journey-page {
-        background: var(--gradient-main);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        min-height: 100vh;
-        padding: 20px;
-      }
-
-      .journey-container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .page-title {
-        text-align: center;
-        font-family: "Dancing Script", cursive;
-        font-size: clamp(2.5rem, 6vw, 3.5rem);
-        color: white;
-        margin-bottom: 50px;
-        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-      }
-
-      .timeline {
-        position: relative;
-        padding: 20px 0;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 100%;
-        background: var(--glass);
-        border-radius: 2px;
-      }
-
-      .timeline-item {
-        position: relative;
-        margin: 50px 0;
-        opacity: 0;
-        animation: slideIn 0.8s ease forwards;
-      }
-
-      @keyframes slideIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      .timeline-content {
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        padding: 25px;
-        border-radius: 20px;
-        width: 90%;
-        max-width: 500px;
-        border: 1px solid var(--glass-border);
-        transition: all 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        position: relative;
-      }
-
-      .timeline-content:hover {
-        transform: translateY(-5px);
-        background: rgba(255, 255, 255, 0.15);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-      }
-
-      .timeline-date {
-        color: var(--warm);
-        font-weight: 600;
-        font-size: clamp(1rem, 2.5vw, 1.1rem);
-        margin-bottom: 10px;
-      }
-
-      .timeline-title {
-        color: white;
-        font-size: clamp(1.2rem, 3vw, 1.5rem);
-        font-weight: 600;
-        margin-bottom: 15px;
-      }
-
-      .timeline-description {
-        color: rgba(255, 255, 255, 0.9);
-        line-height: 1.6;
-        font-size: clamp(0.9rem, 2vw, 1rem);
-      }
-
-      .timeline-image {
-        width: 100%;
-        height: 200px;
-        border-radius: 15px;
-        object-fit: cover;
-        margin-top: 15px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-      }
-
-      .timeline-image:hover {
-        transform: scale(1.05);
-      }
-
-      .timeline-dot {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 20px;
-        background: var(--primary);
-        border: 4px solid white;
-        border-radius: 50%;
-        top: 30px;
-        z-index: 2;
-        box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
-      }
-
-      /* Desktop Timeline Alternating Layout */
-      @media (min-width: 1024px) {
-        .timeline-item:nth-child(odd) .timeline-content {
-          margin-right: auto;
-          margin-left: 0;
-          text-align: left;
-          width: 45%;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-          margin-left: auto;
-          margin-right: 0;
-          text-align: right;
-          width: 45%;
-        }
-      }
-
-      /* Medium screens - single column but wider */
-      @media (min-width: 769px) and (max-width: 1023px) {
-        .timeline-content {
-          width: 70%;
-          margin: 0 auto;
-          text-align: left;
-        }
-
-        .timeline::before {
-          left: 50%;
-        }
-
-        .timeline-dot {
-          left: 50%;
-        }
-      }
-
-      /* Gallery Page */
-      .gallery-page {
-        background: var(--gradient-main);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        min-height: 100vh;
-        padding: 20px;
-      }
-
-      .gallery-container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-      }
-
-      .gallery-item {
-        position: relative;
-        height: 300px;
-        border-radius: 20px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      }
-
-      .gallery-item:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .gallery-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: all 0.3s ease;
-      }
-
-      .gallery-item:hover .gallery-image {
-        transform: scale(1.1);
-      }
-
-      .gallery-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-        color: white;
-        padding: 20px;
-        transform: translateY(100%);
-        transition: all 0.3s ease;
-      }
-
-      .gallery-item:hover .gallery-overlay {
-        transform: translateY(0);
-      }
-
-      .gallery-overlay h3 {
-        font-size: 1.2rem;
-        margin-bottom: 8px;
-      }
-
-      /* Messages Page */
-      .messages-page {
-        background: var(--gradient-main);
-        background-size: 400% 400%;
-        animation: gradientShift 15s ease infinite;
-        min-height: 100vh;
-        padding: 20px;
-      }
-
-      .messages-container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .message-card {
-        background: var(--glass);
-        backdrop-filter: blur(20px);
-        padding: 30px;
-        border-radius: 20px;
-        margin: 30px 0;
-        border: 1px solid var(--glass-border);
-        color: white;
-        transform: scale(0.9);
-        opacity: 0;
-        animation: popIn 0.6s ease forwards;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      }
-
-      @keyframes popIn {
-        to {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-
-      .message-header {
-        font-size: clamp(1.2rem, 3vw, 1.3rem);
-        font-weight: 600;
-        color: var(--warm);
-        margin-bottom: 15px;
-      }
-
-      .message-text {
-        line-height: 1.7;
-        font-size: clamp(1rem, 2.5vw, 1.1rem);
-      }
-
-      /* Mobile Specific Styles */
-      @media (max-width: 768px) {
+        
         .nav-container {
-          gap: 5px;
-          padding: 0 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 20px;
         }
-
+        
         .nav-btn {
-          padding: 10px 16px;
-          font-size: 12px;
+            padding: 12px 24px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
         }
-
+        
+        .nav-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+        }
+        
+        .nav-btn.active {
+            background: var(--primary);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+        }
+        
+        /* Page Transitions */
         .page {
-          padding-top: 70px;
+            display: none;
+            min-height: 100vh;
+            animation: fadeIn 0.8s ease-in-out;
+            padding-top: 80px;
         }
-
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Home Page */
         .home-page {
-          padding: 10px;
-          justify-content: center;
+            background: var(--gradient-main);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
         }
-
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            animation: float 8s infinite ease-in-out;
+            font-size: 20px;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { transform: translateY(-100px) rotate(180deg); }
+        }
+        
         .hero-content {
-          width: 100%;
-          padding: 0;
+            z-index: 2;
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
         }
-
-        .timeline::before {
-          left: 30px;
+        
+        .birthday-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            animation: bounceIn 1s ease-out;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
         }
-
-        .timeline-dot {
-          left: 30px;
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        .timeline-content {
-          width: calc(100% - 80px);
-          margin-left: 60px !important;
-          margin-right: 0 !important;
-          text-align: left !important;
+        
+        .age-display {
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 700;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.5);
         }
-
-        .timer-display {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 15px;
-          max-width: 400px;
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
-
-        .timer-unit {
-          padding: 15px 10px;
-          min-width: 100px;
+        
+        .birth-info {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
-
-        .gallery-grid {
-          grid-template-columns: 1fr;
-          gap: 15px;
-        }
-
+        
         .marriage-timer {
-          padding: 25px 20px;
-          margin: 25px auto;
-          max-width: 500px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 25px;
+            margin: 30px auto;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-      }
-
-      @media (max-width: 480px) {
-        .nav-btn {
-          padding: 8px 12px;
-          font-size: 11px;
+        
+        .timer-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 25px;
+            color: var(--warm);
+            font-weight: 600;
+            text-align: center;
         }
-
+        
+        .timer-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+            justify-items: center;
+        }
+        
+        .timer-unit {
+            text-align: center;
+            padding: 20px 15px;
+            background: var(--glass);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            min-width: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .timer-number {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--accent);
+            display: block;
+        }
+        
+        .timer-label {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .cta-button {
+            padding: 18px 45px;
+            background: var(--gradient-secondary);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 40px auto 0;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+            display: block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
+        }
+        
+        /* Journey Page */
+        .journey-page {
+            background: var(--gradient-main);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .journey-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: white;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--glass);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin: 50px 0;
+            opacity: 0;
+            animation: slideIn 0.8s ease forwards;
+        }
+        
+        @keyframes slideIn {
+            to { opacity: 1; }
+        }
+        
         .timeline-content {
-          padding: 20px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 25px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
-
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-date {
+            color: var(--warm);
+            font-weight: 600;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            color: white;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .timeline-description {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+        
+        .timeline-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .timeline-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border: 4px solid white;
+            border-radius: 50%;
+            top: 30px;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+        
+        /* Desktop Timeline Alternating Layout */
+        @media (min-width: 1024px) {
+            .timeline-item:nth-child(odd) .timeline-content {
+                margin-right: auto;
+                margin-left: 0;
+                text-align: left;
+                width: 45%;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: auto;
+                margin-right: 0;
+                text-align: right;
+                width: 45%;
+            }
+        }
+        
+        /* Medium screens - single column but wider */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .timeline-content {
+                width: 70%;
+                margin: 0 auto;
+                text-align: left;
+            }
+            
+            .timeline::before {
+                left: 50%;
+            }
+            
+            .timeline-dot {
+                left: 50%;
+            }
+        }
+        
+        /* Gallery Page */
+        .gallery-page {
+            background: var(--gradient-main);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            height: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        /* Messages Page */
+        .messages-page {
+            background: var(--gradient-main);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .messages-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
         .message-card {
-          padding: 20px;
-          margin: 20px 0;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            border: 1px solid var(--glass-border);
+            color: white;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: popIn 0.6s ease forwards;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
-      }
+        
+        @keyframes popIn {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .message-header {
+            font-size: clamp(1.2rem, 3vw, 1.3rem);
+            font-weight: 600;
+            color: var(--warm);
+            margin-bottom: 15px;
+        }
+        
+        .message-text {
+            line-height: 1.7;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+        }
+        
+        /* Mobile Specific Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                gap: 5px;
+                padding: 0 10px;
+            }
+            
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+            
+            .page {
+                padding-top: 70px;
+            }
+            
+            .home-page {
+                padding: 10px;
+                justify-content: center;
+            }
+            
+            .hero-content {
+                width: 100%;
+                padding: 0;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timer-display {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                max-width: 400px;
+            }
+            
+            .timer-unit {
+                padding: 15px 10px;
+                min-width: 100px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .marriage-timer {
+                padding: 25px 20px;
+                margin: 25px auto;
+                max-width: 500px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+            
+            .timeline-content {
+                padding: 20px;
+            }
+            
+            .message-card {
+                padding: 20px;
+                margin: 20px 0;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <!-- Navigation -->
     <nav class="nav">
-      <div class="nav-container">
-        <button class="nav-btn active" onclick="showPage('home')">
-          🏠 Home
-        </button>
-        <button class="nav-btn" onclick="showPage('journey')">
-          💕 Journey
-        </button>
-        <button class="nav-btn" onclick="showPage('gallery')">
-          📸 Memories
-        </button>
-        <button class="nav-btn" onclick="showPage('messages')">
-          💌 Love Notes
-        </button>
-      </div>
+        <div class="nav-container">
+            <button class="nav-btn active" onclick="showPage('home')">🏠 Home</button>
+            <button class="nav-btn" onclick="showPage('journey')">💕 Journey</button>
+            <button class="nav-btn" onclick="showPage('gallery')">📸 Memories</button>
+            <button class="nav-btn" onclick="showPage('messages')">💌 Love Notes</button>
+        </div>
     </nav>
 
     <!-- Home Page -->
     <div class="page active" id="home">
-      <div class="home-page">
-        <div class="floating-hearts" id="heartsContainer"></div>
-        <div class="hero-content">
-          <h1 class="birthday-title">Happy Birthday My Gudda! 🎂</h1>
-          <div class="age-display">32</div>
-          <p class="birth-info">Born on July 29, 1993 ✨</p>
-
-          <div class="marriage-timer">
-            <h3 class="timer-title">Time Since We Said "I Do" 💍</h3>
-            <div class="timer-display" id="marriageTimer">
-              <div class="timer-unit">
-                <span class="timer-number" id="years">0</span>
-                <div class="timer-label">Years</div>
-              </div>
-              <div class="timer-unit">
-                <span class="timer-number" id="months">0</span>
-                <div class="timer-label">Months</div>
-              </div>
-              <div class="timer-unit">
-                <span class="timer-number" id="days">0</span>
-                <div class="timer-label">Days</div>
-              </div>
-              <div class="timer-unit">
-                <span class="timer-number" id="hours">0</span>
-                <div class="timer-label">Hours</div>
-              </div>
+        <div class="home-page">
+            <div class="floating-hearts" id="heartsContainer"></div>
+            <div class="hero-content">
+                <h1 class="birthday-title">Happy Birthday My Gudda! 🎂</h1>
+                <div class="age-display">32</div>
+                <p class="birth-info">Making the world brighter since July 29, 1993 ✨</p>
+                
+                <div class="marriage-timer">
+                    <h3 class="timer-title">Time Since We Said "I Do" 💍</h3>
+                    <div class="timer-display" id="marriageTimer">
+                        <div class="timer-unit">
+                            <span class="timer-number" id="years">0</span>
+                            <div class="timer-label">Years</div>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="months">0</span>
+                            <div class="timer-label">Months</div>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="days">0</span>
+                            <div class="timer-label">Days</div>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="hours">0</span>
+                            <div class="timer-label">Hours</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="cta-button" onclick="showPage('journey')">
+                    Let's Explore Our Journey Together 💕
+                </button>
             </div>
-          </div>
-
-          <button class="cta-button" onclick="showPage('journey')">
-            Let's Explore Our Journey Together 💕
-          </button>
         </div>
-      </div>
     </div>
 
     <!-- Journey Page -->
     <div class="page" id="journey">
-      <div class="journey-page">
-        <div class="journey-container">
-          <h1 class="page-title">Our Love Story 💕</h1>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">September 5, 2023</div>
-                <h3 class="timeline-title">First Meeting - Delhi ✈️</h3>
-                <p class="timeline-description">
-                  When we first met in Delhi, it felt like destiny. From Boston
-                  to Dallas, Delhi to our hearts, those first 6 days were
-                  absolute gold. The beginning of our beautiful journey from
-                  long-distance to a lifetime together. My heart knew then -
-                  this was it! 💕
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=200&fit=crop"
-                  alt="First Meeting"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
+        <div class="journey-page">
+            <div class="journey-container">
+                <h1 class="page-title">Our Love Story 💕</h1>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">September 5, 2023</div>
+                            <h3 class="timeline-title">First Meeting - Delhi ✈️</h3>
+                            <p class="timeline-description">
+                                When we first met in Delhi, it felt like destiny. From Boston to Dallas, Delhi to our hearts, 
+                                those first 6 days were absolute gold. The beginning of our beautiful journey from long-distance 
+                                to a lifetime together. My heart knew then - this was it! 💕
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=200&fit=crop" alt="First Meeting" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
 
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">December 17, 2023</div>
-                <h3 class="timeline-title">
-                  Roka Ceremony - Virtual to Reality 💍
-                </h3>
-                <p class="timeline-description">
-                  Our families became one big happy squad! From epic Delhi
-                  meetings to crafting our own '2 States' saga over screens, we
-                  aced this long-distance family merger like pros. The beginning
-                  of our forever journey! 🎉
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1587271636175-90d58cdad458?w=400&h=200&fit=crop"
-                  alt="Roka Ceremony"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">December 17, 2023</div>
+                            <h3 class="timeline-title">Roka Ceremony - Virtual to Reality 💍</h3>
+                            <p class="timeline-description">
+                                Our families became one big happy squad! From epic Delhi meetings to crafting our own 
+                                '2 States' saga over screens, we aced this long-distance family merger like pros. 
+                                The beginning of our forever journey! 🎉
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1587271636175-90d58cdad458?w=400&h=200&fit=crop" alt="Roka Ceremony" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
 
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">March 2024</div>
-                <h3 class="timeline-title">Pre-Wedding Photoshoot ✨</h3>
-                <p class="timeline-description">
-                  Capturing our love before the big day! Every frame told our
-                  story - from the laughter to the stolen glances, from Gudda to
-                  Gudiya moments. These photos became the perfect prelude to our
-                  wedding celebrations! 📸
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop"
-                  alt="Pre-Wedding"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">March 2024</div>
+                            <h3 class="timeline-title">Pre-Wedding Photoshoot ✨</h3>
+                            <p class="timeline-description">
+                                Capturing our love before the big day! Every frame told our story - from the laughter 
+                                to the stolen glances, from Gudda to Gudiya moments. These photos became the perfect 
+                                prelude to our wedding celebrations! 📸
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop" alt="Pre-Wedding" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
 
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">April 1, 2024</div>
-                <h3 class="timeline-title">Mehendi - Stories in Henna ✋</h3>
-                <p class="timeline-description">
-                  From Delhi to Nipani, Boston to Dallas - our journey unfolded
-                  in every intricate detail. Our names, our special PR logo,
-                  "Gudde ki Gudiya" and "Gudiya ka Gudda" - love truly is in the
-                  details. The henna deepened, and so did my love! 🧿
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=200&fit=crop"
-                  alt="Mehendi"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">April 1, 2024</div>
+                            <h3 class="timeline-title">Mehendi - Stories in Henna ✋</h3>
+                            <p class="timeline-description">
+                                From Delhi to Nipani, Boston to Dallas - our journey unfolded in every intricate detail. 
+                                Our names, our special PR logo, "Gudde ki Gudiya" and "Gudiya ka Gudda" - love truly 
+                                is in the details. The henna deepened, and so did my love! 🧿
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=200&fit=crop" alt="Mehendi" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
 
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">April 2, 2024</div>
-                <h3 class="timeline-title">
-                  First Time at His Home & Sagai 🏠
-                </h3>
-                <p class="timeline-description">
-                  Walking into his home, his family made it mine too. Mummy Papa
-                  welcomed me with open hearts, Didi Jiju with so much love, and
-                  Ridhvi & Praavi shouting 'Mami! Mami!' From that day on, I
-                  wasn't just a guest—I was theirs. Our sagai sealed it with
-                  promises! 💕
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=200&fit=crop"
-                  alt="New Home"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">April 2, 2024</div>
+                            <h3 class="timeline-title">First Time at His Home & Sagai 🏠</h3>
+                            <p class="timeline-description">
+                                Walking into his home, his family made it mine too. Mummy Papa welcomed me with open hearts, 
+                                Didi Jiju with so much love, and Ridhvi & Praavi shouting 'Mami! Mami!' From that day on, 
+                                I wasn't just a guest—I was theirs. Our sagai sealed it with promises! 💕
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=200&fit=crop" alt="New Home" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
 
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">April 3, 2024</div>
-                <h3 class="timeline-title">Haldi - North Meets South 🌺</h3>
-                <p class="timeline-description">
-                  Our haldi was pure carnival magic! Men in lungis, women in
-                  silk sarees, and my North Indian family embracing South Indian
-                  vibes with full enthusiasm! Epic games, endless dancing, and
-                  my favorite win - hula-hooping him into my love! 💛
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=200&fit=crop"
-                  alt="Haldi Ceremony"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">April 3, 2024</div>
+                            <h3 class="timeline-title">Haldi - North Meets South 🌺</h3>
+                            <p class="timeline-description">
+                                Our haldi was pure carnival magic! Men in lungis, women in silk sarees, and my North Indian 
+                                family embracing South Indian vibes with full enthusiasm! Epic games, endless dancing, 
+                                and my favorite win - hula-hooping him into my love! 💛
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&h=200&fit=crop" alt="Haldi Ceremony" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
 
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">April 3, 2024 Evening</div>
-                <h3 class="timeline-title">Sangeet & Ring Exchange 💍</h3>
-                <p class="timeline-description">
-                  After South Indian vibes, we switched to vibrant North Indian
-                  celebration! Prithvi's performance had my heart, but our
-                  couple performance truly stole the show. The chemistry,
-                  laughter, and love we shared on stage made it unforgettable!
-                  🎭
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&h=200&fit=crop"
-                  alt="Sangeet"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
-            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">April 3, 2024 Evening</div>
+                            <h3 class="timeline-title">Sangeet & Ring Exchange 💍</h3>
+                            <p class="timeline-description">
+                                After South Indian vibes, we switched to vibrant North Indian celebration! Prithvi's 
+                                performance had my heart, but our couple performance truly stole the show. The chemistry, 
+                                laughter, and love we shared on stage made it unforgettable! 🎭
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=400&h=200&fit=crop" alt="Sangeet" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
 
-            <div class="timeline-item">
-              <div class="timeline-content">
-                <div class="timeline-date">April 4, 2024</div>
-                <h3 class="timeline-title">
-                  Wedding Day - Our Forever Begins 👰‍♀️🤵‍♂️
-                </h3>
-                <p class="timeline-description">
-                  Draped in red, with a heart full of love, I stepped into a new
-                  life with you. The day I left the home that raised me to build
-                  the home we would share. With sindoor in my hair and your hand
-                  in mine, I became yours completely. Our forever began! ❤️✨
-                </p>
-                <img
-                  src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=200&fit=crop"
-                  alt="Wedding"
-                  class="timeline-image"
-                />
-              </div>
-              <div class="timeline-dot"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-date">April 4, 2024</div>
+                            <h3 class="timeline-title">Wedding Day - Our Forever Begins 👰‍♀️🤵‍♂️</h3>
+                            <p class="timeline-description">
+                                Draped in red, with a heart full of love, I stepped into a new life with you. The day I left 
+                                the home that raised me to build the home we would share. With sindoor in my hair and your 
+                                hand in mine, I became yours completely. Our forever began! ❤️✨
+                            </p>
+                            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=200&fit=crop" alt="Wedding" class="timeline-image">
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <!-- Gallery Page -->
     <div class="page" id="gallery">
-      <div class="gallery-page">
-        <div class="gallery-container">
-          <h1 class="page-title">Our Beautiful Memories 📸</h1>
-          <div class="gallery-grid">
-            <div class="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=300&fit=crop"
-                alt="Travel Together"
-                class="gallery-image"
-              />
-              <div class="gallery-overlay">
-                <h3>Adventures Together</h3>
-                <p>
-                  From Arkansas hot springs to San Antonio birthday trips! 🧿
-                </p>
-              </div>
+        <div class="gallery-page">
+            <div class="gallery-container">
+                <h1 class="page-title">Our Beautiful Memories 📸</h1>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=400&h=300&fit=crop" alt="Travel Together" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Adventures Together</h3>
+                            <p>From Arkansas hot springs to San Antonio birthday trips! 🧿</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=400&h=300&fit=crop" alt="Birthday Celebration" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Arcade Birthday Fun</h3>
+                            <p>Playing all the childhood games we love! 🎮</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop" alt="Pre Wedding" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Pre-Wedding Magic</h3>
+                            <p>Capturing our love before the big day! 💕</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop" alt="San Diego Trip" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>First Anniversary Trip</h3>
+                            <p>San Diego & LA - celebrating one year! 🏖️</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=300&fit=crop" alt="Wedding Ceremonies" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Wedding Celebrations</h3>
+                            <p>From mehendi to wedding - every moment was magical! ✨</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=300&fit=crop" alt="Together Forever" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h3>Gudda & Gudiya</h3>
+                            <p>From airport waits to forever waits - worth every mile! 💕</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1551316679-9c6ae9dec224?w=400&h=300&fit=crop"
-                alt="Birthday Celebration"
-                class="gallery-image"
-              />
-              <div class="gallery-overlay">
-                <h3>Arcade Birthday Fun</h3>
-                <p>Playing all the childhood games we love! 🎮</p>
-              </div>
-            </div>
-            <div class="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=400&h=300&fit=crop"
-                alt="Pre Wedding"
-                class="gallery-image"
-              />
-              <div class="gallery-overlay">
-                <h3>Pre-Wedding Magic</h3>
-                <p>Capturing our love before the big day! 💕</p>
-              </div>
-            </div>
-            <div class="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop"
-                alt="San Diego Trip"
-                class="gallery-image"
-              />
-              <div class="gallery-overlay">
-                <h3>First Anniversary Trip</h3>
-                <p>San Diego & LA - celebrating one year! 🏖️</p>
-              </div>
-            </div>
-            <div class="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1583391733956-6c78276477e2?w=400&h=300&fit=crop"
-                alt="Wedding Ceremonies"
-                class="gallery-image"
-              />
-              <div class="gallery-overlay">
-                <h3>Wedding Celebrations</h3>
-                <p>From mehendi to wedding - every moment was magical! ✨</p>
-              </div>
-            </div>
-            <div class="gallery-item">
-              <img
-                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&h=300&fit=crop"
-                alt="Together Forever"
-                class="gallery-image"
-              />
-              <div class="gallery-overlay">
-                <h3>Gudda & Gudiya</h3>
-                <p>
-                  From airport waits to forever waits - worth every mile! 💕
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <!-- Messages Page -->
     <div class="page" id="messages">
-      <div class="messages-page">
-        <div class="messages-container">
-          <h1 class="page-title">Love Notes to My Gudda 💌</h1>
+        <div class="messages-page">
+            <div class="messages-container">
+                <h1 class="page-title">Love Notes to My Gudda 💌</h1>
+                
+                <div class="message-card">
+                    <div class="message-header">Happy 32nd Birthday, My Love! 🎂</div>
+                    <div class="message-text">
+                        From that first meeting in Delhi to now, every day with you has been a blessing. 
+                        You're not just my husband, you're my best friend, my adventure buddy, and my home. 
+                        Here's to another year of love, laughter, and countless memories together!
+                    </div>
+                </div>
 
-          <div class="message-card">
-            <div class="message-header">Happy 32nd Birthday, My Love! 🎂</div>
-            <div class="message-text">
-              From that first meeting in Delhi to now, every day with you has
-              been a blessing. You're not just my husband, you're my best
-              friend, my adventure buddy, and my home. Here's to another year of
-              love, laughter, and countless memories together!
-            </div>
-          </div>
+                <div class="message-card">
+                    <div class="message-header">From Gudiya to Her Gudda 💕</div>
+                    <div class="message-text">
+                        Those airport waits, video calls across time zones, and long-distance love - it was all 
+                        worth every mile to get to where we are today. You make every ordinary moment extraordinary, 
+                        and I'm so grateful to call you mine!
+                    </div>
+                </div>
 
-          <div class="message-card">
-            <div class="message-header">From Gudiya to Her Gudda 💕</div>
-            <div class="message-text">
-              Those airport waits, video calls across time zones, and
-              long-distance love - it was all worth every mile to get to where
-              we are today. You make every ordinary moment extraordinary, and
-              I'm so grateful to call you mine!
-            </div>
-          </div>
+                <div class="message-card">
+                    <div class="message-header">Our Journey So Far ✨</div>
+                    <div class="message-text">
+                        From Boston to Dallas, Delhi to Nipani, arcade games to hot spring adventures - we've 
+                        created the most beautiful story together. I love how we've grown together, laughed together, 
+                        and built this amazing life side by side.
+                    </div>
+                </div>
 
-          <div class="message-card">
-            <div class="message-header">Our Journey So Far ✨</div>
-            <div class="message-text">
-              From Boston to Dallas, Delhi to Nipani, arcade games to hot spring
-              adventures - we've created the most beautiful story together. I
-              love how we've grown together, laughed together, and built this
-              amazing life side by side.
+                <div class="message-card">
+                    <div class="message-header">Forever and Always 🧿</div>
+                    <div class="message-text">
+                        As we celebrate your special day, I'm reminded of how lucky I am to have you. 
+                        Thank you for being the most wonderful husband, for making me laugh every day, 
+                        and for loving me just as I am. Here's to many more birthdays together, my jaan!
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="message-card">
-            <div class="message-header">Forever and Always 🧿</div>
-            <div class="message-text">
-              As we celebrate your special day, I'm reminded of how lucky I am
-              to have you. Thank you for being the most wonderful husband, for
-              making me laugh every day, and for loving me just as I am. Here's
-              to many more birthdays together, my jaan!
-            </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <script>
-      // Page Navigation
-      function showPage(pageId) {
-        // Hide all pages
-        document.querySelectorAll(".page").forEach((page) => {
-          page.classList.remove("active");
-        });
-
-        // Show selected page
-        document.getElementById(pageId).classList.add("active");
-
-        // Update navigation buttons
-        document.querySelectorAll(".nav-btn").forEach((btn) => {
-          btn.classList.remove("active");
-        });
-        event.target.classList.add("active");
-      }
-
-      // Marriage Timer
-      function updateMarriageTimer() {
-        const marriageDate = new Date("2024-04-04T00:00:00");
-        const now = new Date();
-        const diff = now - marriageDate;
-
-        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
-        const months = Math.floor(
-          (diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44)
-        );
-        const days = Math.floor(
-          (diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24)
-        );
-        const hours = Math.floor(
-          (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-
-        document.getElementById("years").textContent = years;
-        document.getElementById("months").textContent = months;
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-      }
-
-      // Floating Hearts Animation
-      function createFloatingHearts() {
-        const heartsContainer = document.getElementById("heartsContainer");
-        const hearts = [
-          "💕",
-          "💖",
-          "💗",
-          "💝",
-          "💘",
-          "❤️",
-          "🧡",
-          "💛",
-          "💚",
-          "💙",
-          "💜",
-        ];
-
-        function addHeart() {
-          const heart = document.createElement("div");
-          heart.className = "heart";
-          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-          heart.style.left = Math.random() * 100 + "%";
-          heart.style.fontSize = Math.random() * 15 + 15 + "px";
-          heart.style.animationDuration = Math.random() * 4 + 6 + "s";
-          heart.style.animationDelay = Math.random() * 2 + "s";
-
-          heartsContainer.appendChild(heart);
-
-          setTimeout(() => {
-            if (heart.parentNode) {
-              heart.parentNode.removeChild(heart);
-            }
-          }, 10000);
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
         }
 
-        // Create hearts periodically
-        setInterval(addHeart, 1200);
-      }
+        // Marriage Timer
+        function updateMarriageTimer() {
+            const marriageDate = new Date('2024-04-04T00:00:00');
+            const now = new Date();
+            const diff = now - marriageDate;
 
-      // Timeline Animation
-      function animateTimeline() {
-        const timelineItems = document.querySelectorAll(".timeline-item");
+            const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+            const months = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44));
+            const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry, index) => {
-              if (entry.isIntersecting) {
-                setTimeout(() => {
-                  entry.target.style.opacity = "1";
-                  entry.target.style.transform = "translateY(0)";
-                }, index * 200);
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
-        timelineItems.forEach((item, index) => {
-          item.style.opacity = "0";
-          item.style.transform = "translateY(30px)";
-          item.style.transition = "all 0.6s ease";
-          item.style.animationDelay = index * 0.2 + "s";
-          observer.observe(item);
-        });
-      }
-
-      // Message Cards Animation
-      function animateMessageCards() {
-        const messageCards = document.querySelectorAll(".message-card");
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry, index) => {
-              if (entry.isIntersecting) {
-                setTimeout(() => {
-                  entry.target.style.animationDelay = index * 0.2 + "s";
-                  entry.target.style.transform = "scale(1)";
-                  entry.target.style.opacity = "1";
-                }, index * 150);
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
-        messageCards.forEach((card) => {
-          observer.observe(card);
-        });
-      }
-
-      // Gallery Animation
-      function animateGallery() {
-        const galleryItems = document.querySelectorAll(".gallery-item");
-
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry, index) => {
-              if (entry.isIntersecting) {
-                setTimeout(() => {
-                  entry.target.style.opacity = "1";
-                  entry.target.style.transform = "translateY(0)";
-                }, index * 100);
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-
-        galleryItems.forEach((item, index) => {
-          item.style.opacity = "0";
-          item.style.transform = "translateY(30px)";
-          item.style.transition = "all 0.6s ease";
-          observer.observe(item);
-        });
-      }
-
-      // Interactive Image Effects
-      function addImageEffects() {
-        const timelineImages = document.querySelectorAll(".timeline-image");
-
-        timelineImages.forEach((img) => {
-          img.addEventListener("click", function () {
-            // Simple zoom effect
-            this.style.position = "fixed";
-            this.style.top = "50%";
-            this.style.left = "50%";
-            this.style.transform = "translate(-50%, -50%) scale(1.8)";
-            this.style.zIndex = "9999";
-            this.style.transition = "all 0.4s ease";
-            this.style.borderRadius = "20px";
-            this.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.5)";
-
-            // Create overlay
-            const overlay = document.createElement("div");
-            overlay.style.position = "fixed";
-            overlay.style.top = "0";
-            overlay.style.left = "0";
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.background = "rgba(0, 0, 0, 0.8)";
-            overlay.style.zIndex = "9998";
-            overlay.style.cursor = "pointer";
-            overlay.style.backdropFilter = "blur(10px)";
-
-            document.body.appendChild(overlay);
-
-            // Close on click
-            const closeModal = () => {
-              this.style.position = "relative";
-              this.style.top = "auto";
-              this.style.left = "auto";
-              this.style.transform = "scale(1)";
-              this.style.zIndex = "auto";
-              this.style.boxShadow = "none";
-              if (document.body.contains(overlay)) {
-                document.body.removeChild(overlay);
-              }
-            };
-
-            overlay.addEventListener("click", closeModal);
-            setTimeout(() => {
-              this.addEventListener("click", closeModal, { once: true });
-            }, 100);
-          });
-        });
-      }
-
-      // Add sparkle effect on hover
-      function addSparkleEffect() {
-        const sparkleElements = document.querySelectorAll(
-          ".timeline-content, .gallery-item, .message-card"
-        );
-
-        sparkleElements.forEach((element) => {
-          element.addEventListener("mouseenter", function () {
-            if (window.innerWidth > 768) {
-              // Only on desktop
-              createSparkles(this);
-            }
-          });
-        });
-      }
-
-      function createSparkles(element) {
-        const sparkles = ["✨", "⭐", "🌟", "💫"];
-        const rect = element.getBoundingClientRect();
-
-        for (let i = 0; i < 3; i++) {
-          const sparkle = document.createElement("div");
-          sparkle.textContent =
-            sparkles[Math.floor(Math.random() * sparkles.length)];
-          sparkle.style.position = "fixed";
-          sparkle.style.left = Math.random() * rect.width + rect.left + "px";
-          sparkle.style.top = Math.random() * rect.height + rect.top + "px";
-          sparkle.style.fontSize = "16px";
-          sparkle.style.pointerEvents = "none";
-          sparkle.style.zIndex = "1000";
-          sparkle.style.animation = "sparkleFloat 1.5s ease-out forwards";
-
-          document.body.appendChild(sparkle);
-
-          setTimeout(() => {
-            if (sparkle.parentNode) {
-              sparkle.parentNode.removeChild(sparkle);
-            }
-          }, 1500);
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
         }
-      }
 
-      // Add CSS for sparkle animation
-      const sparkleStyle = document.createElement("style");
-      sparkleStyle.textContent = `
+        // Floating Hearts Animation
+        function createFloatingHearts() {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const hearts = ['💕', '💖', '💗', '💝', '💘'];
+            
+            function addHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 8 + 18) + 'px';
+                heart.style.animationDuration = (Math.random() * 3 + 8) + 's';
+                heart.style.animationDelay = Math.random() * 3 + 's';
+                
+                heartsContainer.appendChild(heart);
+                
+                setTimeout(() => {
+                    if (heart.parentNode) {
+                        heart.parentNode.removeChild(heart);
+                    }
+                }, 12000);
+            }
+            
+            // Create hearts less frequently
+            setInterval(addHeart, 2500);
+        }
+
+        // Timeline Animation
+        function animateTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 200);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            timelineItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                item.style.animationDelay = index * 0.2 + 's';
+                observer.observe(item);
+            });
+        }
+
+        // Message Cards Animation
+        function animateMessageCards() {
+            const messageCards = document.querySelectorAll('.message-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.animationDelay = index * 0.2 + 's';
+                            entry.target.style.transform = 'scale(1)';
+                            entry.target.style.opacity = '1';
+                        }, index * 150);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            messageCards.forEach(card => {
+                observer.observe(card);
+            });
+        }
+
+        // Gallery Animation
+        function animateGallery() {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            galleryItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+        }
+
+        // Interactive Image Effects
+        function addImageEffects() {
+            const timelineImages = document.querySelectorAll('.timeline-image');
+            
+            timelineImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    // Simple zoom effect
+                    this.style.position = 'fixed';
+                    this.style.top = '50%';
+                    this.style.left = '50%';
+                    this.style.transform = 'translate(-50%, -50%) scale(1.8)';
+                    this.style.zIndex = '9999';
+                    this.style.transition = 'all 0.4s ease';
+                    this.style.borderRadius = '20px';
+                    this.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.5)';
+                    
+                    // Create overlay
+                    const overlay = document.createElement('div');
+                    overlay.style.position = 'fixed';
+                    overlay.style.top = '0';
+                    overlay.style.left = '0';
+                    overlay.style.width = '100%';
+                    overlay.style.height = '100%';
+                    overlay.style.background = 'rgba(0, 0, 0, 0.8)';
+                    overlay.style.zIndex = '9998';
+                    overlay.style.cursor = 'pointer';
+                    overlay.style.backdropFilter = 'blur(10px)';
+                    
+                    document.body.appendChild(overlay);
+                    
+                    // Close on click
+                    const closeModal = () => {
+                        this.style.position = 'relative';
+                        this.style.top = 'auto';
+                        this.style.left = 'auto';
+                        this.style.transform = 'scale(1)';
+                        this.style.zIndex = 'auto';
+                        this.style.boxShadow = 'none';
+                        if (document.body.contains(overlay)) {
+                            document.body.removeChild(overlay);
+                        }
+                    };
+                    
+                    overlay.addEventListener('click', closeModal);
+                    setTimeout(() => {
+                        this.addEventListener('click', closeModal, { once: true });
+                    }, 100);
+                });
+            });
+        }
+
+        // Add sparkle effect on hover
+        function addSparkleEffect() {
+            const sparkleElements = document.querySelectorAll('.timeline-content, .gallery-item, .message-card');
+            
+            sparkleElements.forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    if (window.innerWidth > 768) { // Only on desktop
+                        createSparkles(this);
+                    }
+                });
+            });
+        }
+
+        function createSparkles(element) {
+            const sparkles = ['✨', '⭐', '🌟', '💫'];
+            const rect = element.getBoundingClientRect();
+            
+            for (let i = 0; i < 3; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = Math.random() * rect.width + rect.left + 'px';
+                sparkle.style.top = Math.random() * rect.height + rect.top + 'px';
+                sparkle.style.fontSize = '16px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '1000';
+                sparkle.style.animation = 'sparkleFloat 1.5s ease-out forwards';
+                
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    if (sparkle.parentNode) {
+                        sparkle.parentNode.removeChild(sparkle);
+                    }
+                }, 1500);
+            }
+        }
+
+        // Add CSS for sparkle animation
+        const sparkleStyle = document.createElement('style');
+        sparkleStyle.textContent = `
             @keyframes sparkleFloat {
                 0% {
                     opacity: 1;
@@ -1290,43 +1127,40 @@
                 }
             }
         `;
-      document.head.appendChild(sparkleStyle);
+        document.head.appendChild(sparkleStyle);
 
-      // Confetti Effect
-      function createConfetti() {
-        const colors = ["#FF6B9D", "#FF8E53", "#4ECDC4", "#A8E6CF", "#FFD93D"];
-        const confettiCount = 60;
-
-        for (let i = 0; i < confettiCount; i++) {
-          const confetti = document.createElement("div");
-          confetti.style.position = "fixed";
-          confetti.style.left = Math.random() * 100 + "%";
-          confetti.style.top = "-10px";
-          confetti.style.width = Math.random() * 10 + 5 + "px";
-          confetti.style.height = Math.random() * 10 + 5 + "px";
-          confetti.style.background =
-            colors[Math.floor(Math.random() * colors.length)];
-          confetti.style.borderRadius = Math.random() > 0.5 ? "50%" : "0";
-          confetti.style.transform = "rotate(" + Math.random() * 360 + "deg)";
-          confetti.style.animation = `confettiFall ${
-            Math.random() * 2 + 3
-          }s linear forwards`;
-          confetti.style.zIndex = "1000";
-          confetti.style.pointerEvents = "none";
-
-          document.body.appendChild(confetti);
-
-          setTimeout(() => {
-            if (confetti.parentNode) {
-              confetti.parentNode.removeChild(confetti);
+        // Confetti Effect
+        function createConfetti() {
+            const colors = ['#FF6B9D', '#FF8E53', '#4ECDC4', '#A8E6CF', '#FFD93D'];
+            const confettiCount = 60;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.width = Math.random() * 10 + 5 + 'px';
+                confetti.style.height = Math.random() * 10 + 5 + 'px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                confetti.style.animation = `confettiFall ${Math.random() * 2 + 3}s linear forwards`;
+                confetti.style.zIndex = '1000';
+                confetti.style.pointerEvents = 'none';
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    if (confetti.parentNode) {
+                        confetti.parentNode.removeChild(confetti);
+                    }
+                }, 5000);
             }
-          }, 5000);
         }
-      }
 
-      // Add confetti animation CSS
-      const confettiStyle = document.createElement("style");
-      confettiStyle.textContent = `
+        // Add confetti animation CSS
+        const confettiStyle = document.createElement('style');
+        confettiStyle.textContent = `
             @keyframes confettiFall {
                 to {
                     transform: translateY(100vh) rotate(720deg);
@@ -1334,135 +1168,128 @@
                 }
             }
         `;
-      document.head.appendChild(confettiStyle);
+        document.head.appendChild(confettiStyle);
 
-      // Handle timeline layout for different screen sizes
-      function handleTimelineLayout() {
-        const timelineItems = document.querySelectorAll(".timeline-item");
-
-        if (window.innerWidth <= 768) {
-          // Mobile layout - all items on one side
-          timelineItems.forEach((item) => {
-            const content = item.querySelector(".timeline-content");
-            content.style.width = "calc(100% - 70px)";
-            content.style.marginLeft = "50px";
-            content.style.marginRight = "0";
-            content.style.textAlign = "left";
-          });
-        } else if (window.innerWidth >= 769 && window.innerWidth <= 1023) {
-          // Medium screens - centered single column
-          timelineItems.forEach((item) => {
-            const content = item.querySelector(".timeline-content");
-            content.style.width = "70%";
-            content.style.margin = "0 auto";
-            content.style.textAlign = "left";
-          });
-        } else {
-          // Large desktop layout - alternating sides
-          timelineItems.forEach((item, index) => {
-            const content = item.querySelector(".timeline-content");
-            content.style.width = "45%";
-            content.style.maxWidth = "500px";
-
-            if ((index + 1) % 2 === 1) {
-              // Odd items (1st, 3rd, 5th, etc.) - Left side
-              content.style.marginRight = "auto";
-              content.style.marginLeft = "0";
-              content.style.textAlign = "left";
+        // Handle timeline layout for different screen sizes
+        function handleTimelineLayout() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            if (window.innerWidth <= 768) {
+                // Mobile layout - all items on one side
+                timelineItems.forEach(item => {
+                    const content = item.querySelector('.timeline-content');
+                    content.style.width = 'calc(100% - 70px)';
+                    content.style.marginLeft = '50px';
+                    content.style.marginRight = '0';
+                    content.style.textAlign = 'left';
+                });
+            } else if (window.innerWidth >= 769 && window.innerWidth <= 1023) {
+                // Medium screens - centered single column
+                timelineItems.forEach(item => {
+                    const content = item.querySelector('.timeline-content');
+                    content.style.width = '70%';
+                    content.style.margin = '0 auto';
+                    content.style.textAlign = 'left';
+                });
             } else {
-              // Even items (2nd, 4th, 6th, etc.) - Right side
-              content.style.marginLeft = "auto";
-              content.style.marginRight = "0";
-              content.style.textAlign = "right";
+                // Large desktop layout - alternating sides
+                timelineItems.forEach((item, index) => {
+                    const content = item.querySelector('.timeline-content');
+                    content.style.width = '45%';
+                    content.style.maxWidth = '500px';
+                    
+                    if ((index + 1) % 2 === 1) {
+                        // Odd items (1st, 3rd, 5th, etc.) - Left side
+                        content.style.marginRight = 'auto';
+                        content.style.marginLeft = '0';
+                        content.style.textAlign = 'left';
+                    } else {
+                        // Even items (2nd, 4th, 6th, etc.) - Right side
+                        content.style.marginLeft = 'auto';
+                        content.style.marginRight = '0';
+                        content.style.textAlign = 'right';
+                    }
+                });
             }
-          });
-        }
-      }
-
-      // Initialize everything when page loads
-      document.addEventListener("DOMContentLoaded", function () {
-        updateMarriageTimer();
-        setInterval(updateMarriageTimer, 3600000); // Update every hour
-
-        createFloatingHearts();
-        animateTimeline();
-        animateMessageCards();
-        animateGallery();
-        addImageEffects();
-        addSparkleEffect();
-        handleTimelineLayout();
-
-        // Add birthday confetti effect after a delay
-        setTimeout(() => {
-          createConfetti();
-        }, 1500);
-
-        // Add more confetti periodically on home page
-        setInterval(() => {
-          if (document.getElementById("home").classList.contains("active")) {
-            createConfetti();
-          }
-        }, 10000);
-      });
-
-      // Handle window resize
-      window.addEventListener("resize", function () {
-        handleTimelineLayout();
-      });
-
-      // Add keyboard navigation
-      document.addEventListener("keydown", function (e) {
-        const pages = ["home", "journey", "gallery", "messages"];
-        const currentPage = document.querySelector(".page.active").id;
-        const currentIndex = pages.indexOf(currentPage);
-
-        if (e.key === "ArrowRight" && currentIndex < pages.length - 1) {
-          const nextBtn =
-            document.querySelectorAll(".nav-btn")[currentIndex + 1];
-          nextBtn.click();
-        } else if (e.key === "ArrowLeft" && currentIndex > 0) {
-          const prevBtn =
-            document.querySelectorAll(".nav-btn")[currentIndex - 1];
-          prevBtn.click();
-        }
-      });
-
-      // Add touch gesture support for mobile
-      let touchStartX = 0;
-      let touchEndX = 0;
-
-      document.addEventListener("touchstart", function (e) {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-
-      document.addEventListener("touchend", function (e) {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      });
-
-      function handleSwipe() {
-        const swipeThreshold = 50;
-        const pages = ["home", "journey", "gallery", "messages"];
-        const currentPage = document.querySelector(".page.active").id;
-        const currentIndex = pages.indexOf(currentPage);
-
-        if (
-          touchEndX < touchStartX - swipeThreshold &&
-          currentIndex < pages.length - 1
-        ) {
-          // Swipe left - next page
-          const nextBtn =
-            document.querySelectorAll(".nav-btn")[currentIndex + 1];
-          nextBtn.click();
         }
 
-        if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
-          // Swipe right - previous page
-          const prevBtn =
-            document.querySelectorAll(".nav-btn")[currentIndex - 1];
-          prevBtn.click();
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMarriageTimer();
+            setInterval(updateMarriageTimer, 3600000); // Update every hour
+            
+            createFloatingHearts();
+            animateTimeline();
+            animateMessageCards();
+            animateGallery();
+            addImageEffects();
+            addSparkleEffect();
+            handleTimelineLayout();
+            
+            // Add birthday confetti effect after a delay
+            setTimeout(() => {
+                createConfetti();
+            }, 1500);
+            
+            // Add more confetti periodically on home page
+            setInterval(() => {
+                if (document.getElementById('home').classList.contains('active')) {
+                    createConfetti();
+                }
+            }, 10000);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            handleTimelineLayout();
+        });
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const pages = ['home', 'journey', 'gallery', 'messages'];
+            const currentPage = document.querySelector('.page.active').id;
+            const currentIndex = pages.indexOf(currentPage);
+            
+            if (e.key === 'ArrowRight' && currentIndex < pages.length - 1) {
+                const nextBtn = document.querySelectorAll('.nav-btn')[currentIndex + 1];
+                nextBtn.click();
+            } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                const prevBtn = document.querySelectorAll('.nav-btn')[currentIndex - 1];
+                prevBtn.click();
+            }
+        });
+
+        // Add touch gesture support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const pages = ['home', 'journey', 'gallery', 'messages'];
+            const currentPage = document.querySelector('.page.active').id;
+            const currentIndex = pages.indexOf(currentPage);
+            
+            if (touchEndX < touchStartX - swipeThreshold && currentIndex < pages.length - 1) {
+                // Swipe left - next page
+                const nextBtn = document.querySelectorAll('.nav-btn')[currentIndex + 1];
+                nextBtn.click();
+            }
+            
+            if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+                // Swipe right - previous page
+                const prevBtn = document.querySelectorAll('.nav-btn')[currentIndex - 1];
+                prevBtn.click();
+            }
         }
-      }
     </script>
-  </body>
+</body>
 </html>
