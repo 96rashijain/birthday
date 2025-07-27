@@ -141,36 +141,6 @@
         }
       }
 
-      .floating-hearts {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      .heart {
-        position: absolute;
-        color: rgba(255, 255, 255, 0.4);
-        animation: float 8s infinite ease-in-out;
-        font-size: 20px;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(100vh) rotate(0deg);
-          opacity: 0;
-        }
-        10%,
-        90% {
-          opacity: 1;
-        }
-        50% {
-          transform: translateY(-100px) rotate(180deg);
-        }
-      }
-
       .hero-content {
         z-index: 2;
         position: relative;
@@ -949,7 +919,6 @@
     <!-- Home Page -->
     <div class="page active" id="home">
       <div class="home-page">
-        <div class="floating-hearts" id="heartsContainer"></div>
         <div class="hero-content">
           <h1 class="birthday-title">Happy Birthday My Gudda! 🎂</h1>
           <div class="age-display">32</div>
@@ -1384,34 +1353,6 @@
         document.getElementById("days").textContent = days;
         document.getElementById("hours").textContent = hours;
       }
-
-      // Floating Hearts Animation
-      function createFloatingHearts() {
-        const heartsContainer = document.getElementById("heartsContainer");
-        const hearts = ["💕", "💖", "💗", "💝", "💘"];
-
-        function addHeart() {
-          const heart = document.createElement("div");
-          heart.className = "heart";
-          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-          heart.style.left = Math.random() * 100 + "%";
-          heart.style.fontSize = Math.random() * 8 + 18 + "px";
-          heart.style.animationDuration = Math.random() * 3 + 8 + "s";
-          heart.style.animationDelay = Math.random() * 3 + "s";
-
-          heartsContainer.appendChild(heart);
-
-          setTimeout(() => {
-            if (heart.parentNode) {
-              heart.parentNode.removeChild(heart);
-            }
-          }, 12000);
-        }
-
-        // Create hearts less frequently
-        setInterval(addHeart, 2500);
-      }
-
       // Timeline Animation
       function animateTimeline() {
         const timelineItems = document.querySelectorAll(".timeline-item");
@@ -1703,8 +1644,6 @@
       document.addEventListener("DOMContentLoaded", function () {
         updateMarriageTimer();
         setInterval(updateMarriageTimer, 3600000); // Update every hour
-
-        createFloatingHearts();
         animateTimeline();
         animateMessageCards();
         animateGallery();
@@ -1722,7 +1661,7 @@
           if (document.getElementById("home").classList.contains("active")) {
             createConfetti();
           }
-        }, 10000);
+        }, 4000);
       });
 
       // Handle window resize
