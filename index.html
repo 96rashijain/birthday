@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 32nd Birthday Prithvi! 🎂</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <button class="nav-btn active" onclick="showPage('home')">
+        🏠 Home
+      </button>
+      <button class="nav-btn" onclick="showPage('journey')">
+        💕 Journey
+      </button>
+      <button class="nav-btn" onclick="showPage('gallery')">
+        📸 Memories
+      </button>
+      <button class="nav-btn" onclick="showPage('messages')">
+        💌 Love Notes
+      </button>
+    </div>
+  </nav>
+
+  <!-- Home Page -->
+  <div class="page active" id="home">
+    <div class="home-page">
+      <div class="hero-content">
+        <h1 class="birthday-title">Happy Birthday My Gudda! 🎂</h1>
+        <div class="age-display">32</div>
+        <p class="birth-info">
+          Making the world brighter since July 29, 1993 ✨
+        </p>
+
+        <button class="cta-button" onclick="showPage('journey')">
+          Let's Explore Our Journey Together 💕
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Journey Page -->
+  <div class="page" id="journey">
+    <div class="journey-page">
+      <div class="journey-container">
+        <h1 class="page-title">Our Love Story 💕</h1>
+
+        <div class="marriage-timer">
+          <h3 class="timer-title">Time Since We Said "I Do" 💍</h3>
+          <div class="timer-display" id="marriageTimer">
+            <div class="timer-unit">
+              <span class="timer-number" id="years">0</span>
+              <div class="timer-label">Years</div>
+            </div>
+            <div class="timer-unit">
+              <span class="timer-number" id="months">0</span>
+              <div class="timer-label">Months</div>
+            </div>
+            <div class="timer-unit">
+              <span class="timer-number" id="days">0</span>
+              <div class="timer-label">Days</div>
+            </div>
+            <div class="timer-unit">
+              <span class="timer-number" id="hours">0</span>
+              <div class="timer-label">Hours</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">August 14, 2023</div>
+              <h3 class="timeline-title">First Hello - The Beginning 💫</h3>
+              <p class="timeline-description">
+                The day we first spoke! Little did I know this simple
+                conversation would change everything. Sometimes the best love
+                stories start with a hello that leads to forever. ✨
+              </p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">August 21, 2023</div>
+              <h3 class="timeline-title">Second Chance at Love 💝</h3>
+              <p class="timeline-description">
+                After ghosting you for a week (sorry, my gudda!), I came back
+                and we never stopped talking from that day. You became my
+                constant - my first good morning and last good night. The
+                connection was undeniable and the conversations endless! 💕
+              </p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">September 5, 2023</div>
+              <h3 class="timeline-title">
+                First Meeting - Boston to Dallas ✈️
+              </h3>
+              <p class="timeline-description">
+                I traveled from Boston to Dallas just for you, just to meet
+                you! Those 6 days were absolute gold - every moment magical,
+                every conversation precious. My heart knew then that this was
+                it, this was forever! 💞
+              </p>
+              <img src="images/first meet.jpeg" alt="First Meeting Dallas" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">September 23, 2023</div>
+              <h3 class="timeline-title">The Goodbye That Wasn't 💔✈️</h3>
+              <p class="timeline-description">
+                When you shared the news about moving back to India
+                permanently, I promised to travel again to give you a proper
+                goodbye. But as I held you close, I knew this wasn't goodbye -
+                it was "until we meet again." Love always finds a way! 🌅
+              </p>
+              <img src="images/second meet.jpeg" alt="Goodbye Visit" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">Long Distance Phase</div>
+              <h3 class="timeline-title">
+                Video Calls & Love Across Miles 📱💕
+              </h3>
+              <p class="timeline-description">
+                The hardest but most precious phase - endless video calls
+                bridging the distance between us. From different time zones to
+                virtual dates, we kept our love alive across continents. Every
+                "good morning" and "good night" was a promise of forever. 🌍💞
+              </p>
+              <img src="images/video-calls.jpeg" alt="Video Calls" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">December 2, 2023</div>
+              <h3 class="timeline-title">
+                Birthday in Delhi - Families Meet 🎂✨
+              </h3>
+              <p class="timeline-description">
+                On my birthday, you traveled to Delhi with your family to meet
+                mine! It was so special watching our families connect and fall
+                in love with each other just like we did. Then you came back
+                to the US for me - proving love conquers all distances! 💝
+              </p>
+              <img src="images/delhi meet.jpeg" alt="Birthday Delhi Visit" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">December 17, 2023</div>
+              <h3 class="timeline-title">
+                Virtual Roka - Love Across Miles 💍
+              </h3>
+              <p class="timeline-description">
+                My family traveled to Nipani while we watched from afar,
+                making our roka a beautiful blend of tradition and technology.
+                Our families became one big happy squad! We aced this
+                long-distance family merger like pros, crafting our own '2
+                States' saga over screens! 🎉
+              </p>
+              <img src="images/virual-roka.jpeg" alt="Virtual Roka Ceremony" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">April 1, 2024</div>
+              <h3 class="timeline-title">Mehendi - Stories in Henna ✨</h3>
+              <p class="timeline-description">
+                My mehendi told our story - from Delhi to Nipani, Boston to
+                Dallas, our journey unfolded in every intricate detail. Our
+                places, families, memories, names, and even our nicknames
+                "Gudde ki Gudiya" and "Gudiya ka Gudda" - all woven into this
+                magical design. 🧿
+              </p>
+              <img src="images/mehendi.jpeg" alt="Mehendi Ceremony" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">April 2, 2024</div>
+              <h3 class="timeline-title">Sagai - Unspoken Promises 💍</h3>
+              <p class="timeline-description">
+                Our sagai was more than just a ceremony - it was pure love in
+                action. Your family adorned me with blessings, my family
+                showered you with love, and together we stepped on another
+                beautiful stone towards our lifetime of togetherness. From the
+                tilak to the laughter, every moment was filled with joy and
+                unspoken promises. 💕
+              </p>
+              <img src="images/sagai.jpeg" alt="Sagai Ceremony" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">April 3, 2024</div>
+              <h3 class="timeline-title">Haldi - North Meets South 💛</h3>
+              <p class="timeline-description">
+                Our haldi was nothing short of a carnival! A true North meets
+                South moment - men rocked lungis, women dazzled in silk
+                sarees, and my North Indian family embraced the South Indian
+                vibe with full enthusiasm! From epic decor to endless dancing
+                and my favorite win - hula-hooping you into my love from afar!
+                🤭
+              </p>
+              <img src="images/haldi.jpeg" alt="Haldi Ceremony" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">April 3, 2024 Evening</div>
+              <h3 class="timeline-title">Sangeet & Ring Exchange 💃💍</h3>
+              <p class="timeline-description">
+                After the South Indian vibes at haldi, we switched to a
+                vibrant North Indian celebration topped off with our ring
+                exchange! Your performance had my heart, but our couple
+                performance truly stole the show. Rehearsals full of giggles,
+                final performance full of love and fun! 💛
+              </p>
+              <img src="images/engagement.jpeg" alt="Sangeet Night" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">April 4, 2024</div>
+              <h3 class="timeline-title">
+                Our Wedding Day - Forever Begins 👰🤵
+              </h3>
+              <p class="timeline-description">
+                Draped in red, with a heart full of love and eyes glittering
+                with tears of joy, I stepped into a new life with you. The day
+                I left the home that raised me to build the home we would
+                share. With every step of our pheras, I carried my family's
+                love and walked towards you - my love, my home, my forever.
+                💕🧿
+              </p>
+              <img src="images/marriage.jpeg" alt="Wedding Day" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="timeline-date">May 2, 2024</div>
+              <h3 class="timeline-title">
+                Graduation Day - My Biggest Cheerleader 🎓
+              </h3>
+              <p class="timeline-description">
+                A month after our wedding came another milestone - my
+                graduation! You clapped and cheered so hard that I didn't
+                realize who else wasn't there cheering for me. In that
+                beautiful moment, your enthusiastic support and pride felt
+                like everything I needed. The way you celebrated made my
+                special day even more precious! 🎉💕
+              </p>
+              <img src="images/graduation.jpeg" alt="Graduation Day" class="timeline-image" />
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery Page -->
+  <div class="page" id="gallery">
+    <div class="gallery-page">
+      <div class="gallery-container">
+
+
+        <div class="music-player">
+          <div class="music-info">
+            <div class="music-message">
+              <h3 class="music-title">🎵 Our Love Symphony</h3>
+              <p class="music-description">
+                Every memory we've made deserves its own soundtrack. Let this beautiful melody play as you journey
+                through our precious moments together. Each photo holds a story, each story holds our love. 💕✨
+              </p>
+            </div>
+            <div class="music-controls">
+              <button class="music-btn" id="musicToggle" onclick="toggleMusic()">
+                <span class="music-icon">🎵</span>
+                <span class="music-text">Play Our Song</span>
+              </button>
+              <div class="volume-control">
+                <span class="volume-icon">🔊</span>
+                <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider"
+                  onchange="adjustVolume(this.value)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audio element for local music file -->
+        <audio id="backgroundMusic" loop preload="auto" style="display: none;">
+          <source src="Ek_Ladki_Ko_Dekha_Toh_Aisa_Laga_Darshan_Raval_Rochak_Kohli.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+
+        <!-- Audio element for music -->
+        <audio id="backgroundMusic" loop preload="auto" style="display: none;">
+          <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.wav" type="audio/wav">
+          <!-- Fallback: You'll need to replace this with an actual audio file -->
+        </audio>
+
+        <!-- Alternative: Embed invisible music player -->
+        <div id="musicEmbed"
+          style="position: fixed; top: -200px; left: -200px; width: 1px; height: 1px; opacity: 0; pointer-events: none;">
+          <!-- This will contain the music player -->
+        </div>
+        <h1 class="page-title">Our Beautiful Memories 📸</h1>
+
+        <div class="heart-collage">
+          <div class="heart-container">
+            <!-- Heart-shaped photo collage - 51 photos for fuller heart shape -->
+
+            <!-- Top left heart bump (7 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/1.jpeg" alt="Memory 1" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/2.jpeg" alt="Memory 2" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/3.jpeg" alt="Memory 3" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/4.jpeg" alt="Memory 4" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/5.jpeg" alt="Memory 5" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/6.jpeg" alt="Memory 6" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/7.jpeg" alt="Memory 7" />
+            </div>
+
+            <!-- Top right heart bump (7 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/8.jpeg" alt="Memory 8" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/9.jpeg" alt="Memory 9" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/10.jpeg" alt="Memory 10" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/11.jpeg" alt="Memory 11" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/12.jpeg" alt="Memory 12" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/13.jpeg" alt="Memory 13" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/14.jpeg" alt="Memory 14" />
+            </div>
+
+            <!-- Heart valley - center dip (3 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/15.jpeg" alt="Memory 15" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/16.jpeg" alt="Memory 16" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/17.jpeg" alt="Memory 17" />
+            </div>
+
+            <!-- Upper middle section - heart widens (8 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/18.jpeg" alt="Memory 18" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/19.jpeg" alt="Memory 19" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/20.jpeg" alt="Memory 20" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/21.jpeg" alt="Memory 21" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/22.jpeg" alt="Memory 22" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/23.jpeg" alt="Memory 23" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/24.jpeg" alt="Memory 24" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/25.jpeg" alt="Memory 25" />
+            </div>
+
+            <!-- Widest part of heart (9 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/26.jpeg" alt="Memory 26" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/27.jpeg" alt="Memory 27" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/28.jpeg" alt="Memory 28" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/29.jpeg" alt="Memory 29" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/30.jpeg" alt="Memory 30" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/31.jpeg" alt="Memory 31" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/32.jpeg" alt="Memory 32" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/33.jpeg" alt="Memory 33" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/34.jpeg" alt="Memory 34" />
+            </div>
+
+            <!-- Heart starts narrowing (7 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/35.jpeg" alt="Memory 35" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/36.jpeg" alt="Memory 36" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/37.jpeg" alt="Memory 37" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/38.jpeg" alt="Memory 38" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/39.jpeg" alt="Memory 39" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/40.jpeg" alt="Memory 40" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/41.jpeg" alt="Memory 41" />
+            </div>
+
+            <!-- Lower section (5 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/42.jpeg" alt="Memory 42" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/43.jpeg" alt="Memory 43" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/44.jpeg" alt="Memory 44" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/45.jpeg" alt="Memory 45" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/46.jpeg" alt="Memory 46" />
+            </div>
+
+            <!-- Bottom section approaching point (3 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/47.jpeg" alt="Memory 47" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/48.jpeg" alt="Memory 48" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/49.jpeg" alt="Memory 49" />
+            </div>
+
+            <!-- Heart point (2 photos) -->
+            <div class="heart-photo">
+              <img src="images/heart-image/50.jpeg" alt="Memory 50" />
+            </div>
+            <div class="heart-photo">
+              <img src="images/heart-image/51.jpeg" alt="Memory 51" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Messages Page -->
+  <div class="page" id="messages">
+    <div class="messages-page">
+      <div class="messages-container">
+        <h1 class="page-title">Love Notes to My Gudda 💌</h1>
+
+        <!-- Lock Screen (shown initially) -->
+        <div class="messages-locked" id="messagesLocked">
+          <div class="lock-icon">🔒</div>
+          <h2 class="lock-title">My Heart's Love Vault</h2>
+          <p class="lock-subtitle">
+            Hey my sweet gudda! 💕
+            <br />I've written some super special love notes just for your
+            eyes!
+            <span class="love-heart">💖</span>
+            <br />Only you know the magic code to unlock them! 🗝️✨
+          </p>
+          <button class="unlock-btn" onclick="showPasscodePopup()">
+            💝 Unlock My Love Letters
+          </button>
+        </div>
+
+        <!-- Actual Messages (hidden initially) -->
+        <div class="messages-content" id="messagesContent" style="display: none">
+          <div class="message-card">
+            <div class="message-header">
+              Happy Birthday, my love — my Sukoon, my Gudda, my everything.
+              ❤️✨
+            </div>
+            <div class="message-text">
+              There's no fancy way to say this — I love you more than anything
+              in this world. More than words, more than logic, more than my
+              own self some days. This journey we're on? It hasn't been easy.
+              In fact, it's been messy, magical, loud, emotional, chaotic —
+              <em>real.</em> We've had our share of fights, frustrations, and
+              silent stares. We've manifested problems like we're that "fav
+              Gujarati couple" — visa stress, family decisions, work madness,
+              homes to make, and futures to build. But through it all, one
+              truth never changed: it's always been <em>you.</em> It's only
+              <em>you.</em><br /><br />
+
+              From our first conversation — to me ghosting you (sorry, jaan
+              🙈) and then never letting go since — to every laugh, every
+              late-night video call, every airport hug, every goodbye, and
+              every reunion,
+              <em>you've felt like home.</em><br /><br />
+
+              This marriage hasn't been perfect. But it's ours. And every time
+              I look at you, even after the hardest days, my heart whispers
+              the same thing — <em>he's my forever.</em> I might be blunt, I
+              might be stubborn, I might nag or cry or shut down… but please
+              know this — I love you <em>so so so much</em>, jaan. Words
+              honestly fail me. Even in the worst moments, there's never been
+              a second where I didn't want <em>you.</em><br /><br />
+
+              So today, on your special day, I just want to say this:
+              <strong>Thank you for being mine. For loving me even when I'm hard to
+                love. For standing by me even when storms hit. For being my
+                person.</strong><br /><br />
+
+              You're not just my husband. You're my favorite story. My player
+              2 in every arcade of life. My reality check and my dreamer.
+              <em>My sukoon.</em><br /><br />
+
+              Happy Birthday, jaan. Let's grow stronger, crazier, softer,
+              louder — together. Forever. 🧿❤️
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Passcode Popup Modal -->
+  <div class="passcode-popup" id="passcodePopup">
+    <div class="passcode-content">
+      <h2 class="passcode-title">My Heart's Secret Code 💝</h2>
+      <p class="passcode-subtitle">
+        My Love! 💕
+        <br />This vault holds my most precious love letters just for you!
+        <span class="love-heart">💖</span>
+        <br />Can you remember this special code? <br /><small>Hint: Our birth date catch ✨</small>
+      </p>
+
+      <div class="passcode-input-container">
+        <input type="password" class="passcode-input" id="passcodeInput" placeholder="****" maxlength="4"
+          autocomplete="off" />
+      </div>
+
+      <div class="passcode-error" id="passcodeError">
+        Oops! That's not right, my love! Try again 💕
+      </div>
+
+      <div class="passcode-buttons">
+        <button class="passcode-btn" onclick="checkPasscode()">
+          💖 Unlock My Heart
+        </button>
+        <button class="passcode-btn cancel" onclick="closePasscodePopup()">
+          🔙 Maybe Later
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gallery Popup Modal -->
+  <div class="gallery-popup" id="galleryPopup">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closeGalleryPopup()">
+        &times;
+      </button>
+      <img class="popup-image" id="popupImage" src="" alt="Gallery Image" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
