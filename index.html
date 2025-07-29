@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <div class="floating-hearts" id="floatingHearts"></div>
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-container">
@@ -36,7 +37,24 @@
         <p class="birth-info">
           Making the world brighter since July 29, 1993 ✨
         </p>
+        <div class="love-poem">
+          <p class="poem-text">
+            From Boston skies to Dallas streets,<br />
+            Two hearts collided, skipped some beats.<br />
+            A ghosted text, then fate's restart,<br />
+            And just like that—you had my heart.<br /><br />
 
+            From airport hugs to video calls,<br />
+            Through highs and lows and teary falls,<br />
+            We danced through distance, time, and fear,<br />
+            To build the life that brought us here.<br /><br />
+
+            So here's a gift, not wrapped or tied—<br />
+            Just love, in pixels, by your bride.<br />
+            A site, a story, a piece of "us,"<br />
+            For my forever, my always, my Prithvi, my plus. 💕
+          </p>
+        </div>
         <button class="cta-button" onclick="showPage('journey')">
           Let's Explore Our Journey Together 💕
         </button>
@@ -296,15 +314,15 @@
   <div class="page" id="gallery">
     <div class="gallery-page">
       <div class="gallery-container">
-
-
         <div class="music-player">
           <div class="music-info">
             <div class="music-message">
               <h3 class="music-title">🎵 Our Love Symphony</h3>
               <p class="music-description">
-                Every memory we've made deserves its own soundtrack. Let this beautiful melody play as you journey
-                through our precious moments together. Each photo holds a story, each story holds our love. 💕✨
+                Every memory we've made deserves its own soundtrack. Let this
+                beautiful melody play as you journey through our precious
+                moments together. Each photo holds a story, each story holds
+                our love. 💕✨
               </p>
             </div>
             <div class="music-controls">
@@ -315,27 +333,34 @@
               <div class="volume-control">
                 <span class="volume-icon">🔊</span>
                 <input type="range" id="volumeSlider" min="0" max="100" value="50" class="volume-slider"
-                  onchange="adjustVolume(this.value)">
+                  onchange="adjustVolume(this.value)" />
               </div>
             </div>
           </div>
         </div>
 
         <!-- Audio element for local music file -->
-        <audio id="backgroundMusic" loop preload="auto" style="display: none;">
-          <source src="Ek_Ladki_Ko_Dekha_Toh_Aisa_Laga_Darshan_Raval_Rochak_Kohli.mp3" type="audio/mpeg">
+        <audio id="backgroundMusic" loop preload="auto" style="display: none">
+          <source src="Ek_Ladki_Ko_Dekha_Toh_Aisa_Laga_Darshan_Raval_Rochak_Kohli.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
 
         <!-- Audio element for music -->
-        <audio id="backgroundMusic" loop preload="auto" style="display: none;">
-          <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.wav" type="audio/wav">
+        <audio id="backgroundMusic" loop preload="auto" style="display: none">
+          <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.wav" type="audio/wav" />
           <!-- Fallback: You'll need to replace this with an actual audio file -->
         </audio>
 
         <!-- Alternative: Embed invisible music player -->
-        <div id="musicEmbed"
-          style="position: fixed; top: -200px; left: -200px; width: 1px; height: 1px; opacity: 0; pointer-events: none;">
+        <div id="musicEmbed" style="
+              position: fixed;
+              top: -200px;
+              left: -200px;
+              width: 1px;
+              height: 1px;
+              opacity: 0;
+              pointer-events: none;
+            ">
           <!-- This will contain the music player -->
         </div>
         <h1 class="page-title">Our Beautiful Memories 📸</h1>
@@ -524,7 +549,7 @@
   <div class="page" id="messages">
     <div class="messages-page">
       <div class="messages-container">
-        <h1 class="page-title">Love Notes to My Gudda 💌</h1>
+        <h1 class="page-title">Love Note to My Gudda 💌</h1>
 
         <!-- Lock Screen (shown initially) -->
         <div class="messages-locked" id="messagesLocked">
@@ -546,8 +571,7 @@
         <div class="messages-content" id="messagesContent" style="display: none">
           <div class="message-card">
             <div class="message-header">
-              Happy Birthday, my love — my Sukoon, my Gudda, my everything.
-              ❤️✨
+              Happy Birthday, my Love, my Gudda, my everything ❤️✨
             </div>
             <div class="message-text">
               There's no fancy way to say this — I love you more than anything
@@ -610,7 +634,7 @@
       </div>
 
       <div class="passcode-error" id="passcodeError">
-        Oops! That's not right, my love! Try again 💕
+        Oops! That's not right, my love! Try again
       </div>
 
       <div class="passcode-buttons">
@@ -633,6 +657,16 @@
       <img class="popup-image" id="popupImage" src="" alt="Gallery Image" />
     </div>
   </div>
+
+  <footer class="sweet-footer">
+    <div class="footer-content">
+      <p class="footer-text">
+        Made with endless love by your Gudiya
+        <span class="footer-heart">❤️</span>
+        Forever yours, always yours
+      </p>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
