@@ -141,57 +141,9 @@ function animateGallery() {
 
 // Interactive Image Effects - Updated with small popup for gallery images
 function addImageEffects() {
-  const timelineImages = document.querySelectorAll(".timeline-image");
   const heartPhotos = document.querySelectorAll(".heart-photo");
 
-  // Timeline images functionality (keep existing large modal)
-  timelineImages.forEach((img) => {
-    img.addEventListener("click", function () {
-      // Simple zoom effect (keep existing code)
-      this.style.position = "fixed";
-      this.style.top = "50%";
-      this.style.left = "50%";
-      this.style.transform = "translate(-50%, -50%) scale(1.8)";
-      this.style.zIndex = "9999";
-      this.style.transition = "all 0.4s ease";
-      this.style.borderRadius = "20px";
-      this.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.5)";
-
-      // Create overlay
-      const overlay = document.createElement("div");
-      overlay.style.position = "fixed";
-      overlay.style.top = "0";
-      overlay.style.left = "0";
-      overlay.style.width = "100%";
-      overlay.style.height = "100%";
-      overlay.style.background = "rgba(0, 0, 0, 0.8)";
-      overlay.style.zIndex = "9998";
-      overlay.style.cursor = "pointer";
-      overlay.style.backdropFilter = "blur(10px)";
-
-      document.body.appendChild(overlay);
-
-      // Close on click
-      const closeModal = () => {
-        this.style.position = "relative";
-        this.style.top = "auto";
-        this.style.left = "auto";
-        this.style.transform = "scale(1)";
-        this.style.zIndex = "auto";
-        this.style.boxShadow = "none";
-        if (document.body.contains(overlay)) {
-          document.body.removeChild(overlay);
-        }
-      };
-
-      overlay.addEventListener("click", closeModal);
-      setTimeout(() => {
-        this.addEventListener("click", closeModal, { once: true });
-      }, 100);
-    });
-  });
-
-  // Heart photos functionality (NEW - small popup)
+  // Heart photos functionality (Gallery images with small popup)
   heartPhotos.forEach((photo) => {
     photo.addEventListener("click", function (e) {
       e.preventDefault();
@@ -619,32 +571,55 @@ document.addEventListener("keydown", function (e) {
 // Add touch gesture support for mobile
 let touchStartX = 0;
 let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
+let touchStartTime = 0;
 
 document.addEventListener("touchstart", function (e) {
   touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+  touchStartTime = Date.now();
 });
 
 document.addEventListener("touchend", function (e) {
   touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
+  touchEndY = e.changedTouches[0].screenY;
+
+  // Only process swipes that are quick (under 500ms)
+  const touchDuration = Date.now() - touchStartTime;
+  if (touchDuration < 500) {
+    handleSwipe();
+  }
 });
 
 function handleSwipe() {
-  const swipeThreshold = 50;
+  const swipeThreshold = 80; // Increased threshold
+  const swipeDistance = Math.abs(touchEndX - touchStartX);
   const pages = ["home", "journey", "gallery", "messages"];
   const currentPage = document.querySelector(".page.active").id;
   const currentIndex = pages.indexOf(currentPage);
 
+  // Only process if it's a clear horizontal swipe (not vertical scroll)
+  const verticalMovement = Math.abs(touchEndY - touchStartY);
+  if (verticalMovement > swipeDistance * 0.7) {
+    return; // This was more of a vertical scroll, ignore
+  }
+
   if (
     touchEndX < touchStartX - swipeThreshold &&
-    currentIndex < pages.length - 1
+    currentIndex < pages.length - 1 &&
+    swipeDistance > swipeThreshold
   ) {
     // Swipe left - next page
     const nextBtn = document.querySelectorAll(".nav-btn")[currentIndex + 1];
     nextBtn.click();
   }
 
-  if (touchEndX > touchStartX + swipeThreshold && currentIndex > 0) {
+  if (
+    touchEndX > touchStartX + swipeThreshold &&
+    currentIndex > 0 &&
+    swipeDistance > swipeThreshold
+  ) {
     // Swipe right - previous page
     const prevBtn = document.querySelectorAll(".nav-btn")[currentIndex - 1];
     prevBtn.click();
@@ -657,72 +632,80 @@ let audioElement = null;
 
 // Initialize audio element
 function initializeAudio() {
-  audioElement = document.getElementById('backgroundMusic');
+  audioElement = document.getElementById("backgroundMusic");
   if (audioElement) {
     audioElement.volume = 0.5; // Set initial volume to 50%
-    
+
     // Add event listeners
-    audioElement.addEventListener('ended', function() {
+    audioElement.addEventListener("ended", function () {
       // This shouldn't fire due to loop attribute, but just in case
       audioElement.currentTime = 0;
       audioElement.play();
     });
-    
-    audioElement.addEventListener('error', function(e) {
-      console.log('Audio error:', e);
-      showMusicMessage("❌ Couldn't load the music file. Please check if the file exists! 🎵", 4000);
+
+    audioElement.addEventListener("error", function (e) {
+      console.log("Audio error:", e);
+      showMusicMessage(
+        "❌ Couldn't load the music file. Please check if the file exists! 🎵",
+        4000
+      );
     });
-    
-    audioElement.addEventListener('canplaythrough', function() {
-      console.log('Audio loaded successfully!');
+
+    audioElement.addEventListener("canplaythrough", function () {
+      console.log("Audio loaded successfully!");
     });
   }
 }
 
 // Toggle music play/pause
 function toggleMusic() {
-  const musicBtn = document.getElementById('musicToggle');
-  const musicIcon = musicBtn.querySelector('.music-icon');
-  const musicText = musicBtn.querySelector('.music-text');
-  
+  const musicBtn = document.getElementById("musicToggle");
+  const musicIcon = musicBtn.querySelector(".music-icon");
+  const musicText = musicBtn.querySelector(".music-text");
+
   if (!audioElement) {
     initializeAudio();
     return;
   }
-  
+
   if (!isPlaying) {
     // Play music
     const playPromise = audioElement.play();
-    
+
     if (playPromise !== undefined) {
-      playPromise.then(() => {
-        // Audio started successfully
-        isPlaying = true;
-        musicBtn.classList.add('playing');
-        musicIcon.textContent = '⏸️';
-        musicText.textContent = 'Pause Our Song';
-        
-        // Add floating music notes effect
-        createMusicNotes();
-        
-        // Show success message
-        showMusicMessage("🎵 Our love song is now playing... Let the memories dance! 💕");
-        
-      }).catch((error) => {
-        // Auto-play was prevented
-        console.log('Playback prevented:', error);
-        showMusicMessage("🎵 Click again to start our love song! (Browser blocked autoplay) 💕", 4000);
-      });
+      playPromise
+        .then(() => {
+          // Audio started successfully
+          isPlaying = true;
+          musicBtn.classList.add("playing");
+          musicIcon.textContent = "⏸️";
+          musicText.textContent = "Pause Our Song";
+
+          // Add floating music notes effect
+          createMusicNotes();
+
+          // Show success message
+          showMusicMessage(
+            "🎵 Our love song is now playing... Let the memories dance! 💕"
+          );
+        })
+        .catch((error) => {
+          // Auto-play was prevented
+          console.log("Playback prevented:", error);
+          showMusicMessage(
+            "🎵 Click again to start our love song! (Browser blocked autoplay) 💕",
+            4000
+          );
+        });
     }
-    
   } else {
     // Pause music
     audioElement.pause();
     isPlaying = false;
-    musicBtn.classList.remove('playing');
-    musicIcon.textContent = '🎵';
-    musicText.textContent = 'Play Our Song';
-    
+    musicBtn.classList.remove("playing");
+    musicIcon.textContent = "🎵";
+    musicText.textContent = "Play Our Song";
+
     showMusicMessage("🔇 Music paused... but our love plays on forever! 💖");
   }
 }
@@ -732,46 +715,48 @@ function adjustVolume(volume) {
   if (audioElement) {
     audioElement.volume = volume / 100;
   }
-  
+
   // Update volume icon based on level
-  const volumeIcon = document.querySelector('.volume-icon');
+  const volumeIcon = document.querySelector(".volume-icon");
   if (volumeIcon) {
     if (volume == 0) {
-      volumeIcon.textContent = '🔇';
+      volumeIcon.textContent = "🔇";
     } else if (volume < 30) {
-      volumeIcon.textContent = '🔉';
+      volumeIcon.textContent = "🔉";
     } else {
-      volumeIcon.textContent = '🔊';
+      volumeIcon.textContent = "🔊";
     }
   }
 }
 
 // Create floating music notes effect
 function createMusicNotes() {
-  const notes = ['🎵', '🎶', '♪', '♫', '🎼'];
-  
+  const notes = ["🎵", "🎶", "♪", "♫", "🎼"];
+
   for (let i = 0; i < 6; i++) {
-    const note = document.createElement('div');
+    const note = document.createElement("div");
     note.textContent = notes[Math.floor(Math.random() * notes.length)];
-    note.style.position = 'fixed';
-    note.style.left = Math.random() * (window.innerWidth - 50) + 'px';
-    note.style.top = window.innerHeight + 'px';
-    note.style.fontSize = Math.random() * 10 + 18 + 'px';
-    note.style.color = '#FF6B9D';
-    note.style.pointerEvents = 'none';
-    note.style.zIndex = '1000';
-    note.style.animation = `musicNoteFloat ${Math.random() * 2 + 4}s linear forwards`;
-    note.style.textShadow = '0 0 10px rgba(255, 107, 157, 0.5)';
-    
+    note.style.position = "fixed";
+    note.style.left = Math.random() * (window.innerWidth - 50) + "px";
+    note.style.top = window.innerHeight + "px";
+    note.style.fontSize = Math.random() * 10 + 18 + "px";
+    note.style.color = "#FF6B9D";
+    note.style.pointerEvents = "none";
+    note.style.zIndex = "1000";
+    note.style.animation = `musicNoteFloat ${
+      Math.random() * 2 + 4
+    }s linear forwards`;
+    note.style.textShadow = "0 0 10px rgba(255, 107, 157, 0.5)";
+
     document.body.appendChild(note);
-    
+
     setTimeout(() => {
       if (note.parentNode) {
         note.parentNode.removeChild(note);
       }
     }, 6000);
   }
-  
+
   // Continue creating notes while music is playing
   if (isPlaying) {
     setTimeout(createMusicNotes, 4000);
@@ -781,13 +766,13 @@ function createMusicNotes() {
 // Show music message
 function showMusicMessage(message, duration = 3000) {
   // Remove existing message if any
-  const existingMessage = document.querySelector('.music-notification');
+  const existingMessage = document.querySelector(".music-notification");
   if (existingMessage) {
     existingMessage.remove();
   }
-  
-  const notification = document.createElement('div');
-  notification.className = 'music-notification';
+
+  const notification = document.createElement("div");
+  notification.className = "music-notification";
   notification.textContent = message;
   notification.style.cssText = `
     position: fixed;
@@ -808,13 +793,13 @@ function showMusicMessage(message, duration = 3000) {
     text-align: center;
     max-width: 90vw;
   `;
-  
+
   document.body.appendChild(notification);
-  
+
   // Remove after specified duration
   setTimeout(() => {
     if (notification.parentNode) {
-      notification.style.animation = 'musicMessageSlide 0.5s ease reverse';
+      notification.style.animation = "musicMessageSlide 0.5s ease reverse";
       setTimeout(() => {
         if (notification.parentNode) {
           notification.parentNode.removeChild(notification);
@@ -825,9 +810,9 @@ function showMusicMessage(message, duration = 3000) {
 }
 
 // Add CSS animations for music effects
-if (!document.querySelector('#musicAnimations')) {
-  const musicAnimationsStyle = document.createElement('style');
-  musicAnimationsStyle.id = 'musicAnimations';
+if (!document.querySelector("#musicAnimations")) {
+  const musicAnimationsStyle = document.createElement("style");
+  musicAnimationsStyle.id = "musicAnimations";
   musicAnimationsStyle.textContent = `
     @keyframes musicNoteFloat {
       0% {
@@ -861,35 +846,38 @@ if (!document.querySelector('#musicAnimations')) {
 // Initialize music player when gallery page is visited
 function initializeMusicPlayer() {
   initializeAudio();
-  
+
   // Show welcome message
   setTimeout(() => {
-    const galleryPage = document.getElementById('gallery');
-    if (galleryPage && galleryPage.classList.contains('active')) {
-      showMusicMessage("🎵 Welcome to our memories! Click 'Play Our Song' to add music to your journey! 💕", 4000);
+    const galleryPage = document.getElementById("gallery");
+    if (galleryPage && galleryPage.classList.contains("active")) {
+      showMusicMessage(
+        "🎵 Welcome to our memories! Click 'Play Our Song' to add music to your journey! 💕",
+        4000
+      );
     }
   }, 1000);
 }
 
 // Override the original showPage function to handle music
 const originalShowPage = window.showPage || showPage;
-window.showPage = function(pageId) {
+window.showPage = function (pageId) {
   originalShowPage(pageId);
-  
-  if (pageId === 'gallery') {
+
+  if (pageId === "gallery") {
     // Initialize music player when gallery page is visited
     setTimeout(initializeMusicPlayer, 500);
   } else if (isPlaying && audioElement) {
     // Pause music when leaving gallery page
     audioElement.pause();
     isPlaying = false;
-    const musicBtn = document.getElementById('musicToggle');
+    const musicBtn = document.getElementById("musicToggle");
     if (musicBtn) {
-      musicBtn.classList.remove('playing');
-      const musicIcon = musicBtn.querySelector('.music-icon');
-      const musicText = musicBtn.querySelector('.music-text');
-      if (musicIcon) musicIcon.textContent = '🎵';
-      if (musicText) musicText.textContent = 'Play Our Song';
+      musicBtn.classList.remove("playing");
+      const musicIcon = musicBtn.querySelector(".music-icon");
+      const musicText = musicBtn.querySelector(".music-text");
+      if (musicIcon) musicIcon.textContent = "🎵";
+      if (musicText) musicText.textContent = "Play Our Song";
     }
   }
 };
@@ -898,3 +886,94 @@ window.showPage = function(pageId) {
 if (!window.showPage) {
   window.showPage = originalShowPage;
 }
+let heartsInterval;
+
+function createFloatingHeart() {
+  const heartsContainer = document.getElementById("floatingHearts");
+  if (!heartsContainer) return;
+
+  const hearts = ["🧡", "❤️", "🧡", "❤️", "🧡", "❤️", "🧡", "❤️", "🧡", "❤️"];
+  const heart = document.createElement("div");
+  heart.className = "floating-heart";
+  heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+  // Random starting position
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.animationDuration = Math.random() * 3 + 4 + "s"; // 4-7 seconds
+  heart.style.animationDelay = Math.random() * 2 + "s";
+
+  // Add some horizontal drift
+  const drift = (Math.random() - 0.5) * 100;
+  heart.style.setProperty("--drift", drift + "px");
+
+  heartsContainer.appendChild(heart);
+
+  // Remove heart after animation completes
+  setTimeout(() => {
+    if (heart.parentNode) {
+      heart.parentNode.removeChild(heart);
+    }
+  }, 8000);
+}
+
+function startFloatingHearts() {
+  // Create hearts at regular intervals
+  heartsInterval = setInterval(createFloatingHeart, 800);
+
+  // Create initial hearts
+  for (let i = 0; i < 3; i++) {
+    setTimeout(createFloatingHeart, i * 200);
+  }
+}
+
+function stopFloatingHearts() {
+  if (heartsInterval) {
+    clearInterval(heartsInterval);
+  }
+}
+
+// Enhanced floating hearts with horizontal drift
+const floatingHeartsStyle = document.createElement("style");
+floatingHeartsStyle.textContent = `
+  @keyframes floatUp {
+    0% {
+      transform: translateY(100vh) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(var(--drift, 0px)) rotate(360deg);
+      opacity: 0;
+    }
+  }
+`;
+document.head.appendChild(floatingHeartsStyle);
+
+// Start hearts when page loads
+document.addEventListener("DOMContentLoaded", function () {
+  // Start floating hearts after a short delay
+  setTimeout(startFloatingHearts, 1000);
+});
+
+// Optional: Restart hearts when page changes (if you want)
+const originalShowPageForHearts = window.showPage;
+window.showPage = function (pageId) {
+  if (originalShowPageForHearts) {
+    originalShowPageForHearts(pageId);
+  }
+
+  // Clear existing hearts
+  const heartsContainer = document.getElementById("floatingHearts");
+  if (heartsContainer) {
+    heartsContainer.innerHTML = "";
+  }
+
+  // Restart hearts animation
+  stopFloatingHearts();
+  setTimeout(startFloatingHearts, 500);
+};
