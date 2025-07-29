@@ -104,6 +104,113 @@ body {
     transform: translateY(0);
   }
 }
+/* Floating Hearts Styles */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  font-size: 20px;
+  color: rgba(255, 107, 157, 0.7);
+  animation: floatUp linear infinite;
+  pointer-events: none;
+}
+
+.floating-heart:nth-child(2n) {
+  color: rgba(255, 142, 83, 0.6);
+  font-size: 16px;
+}
+
+.floating-heart:nth-child(3n) {
+  color: rgba(168, 230, 207, 0.7);
+  font-size: 24px;
+}
+
+.floating-heart:nth-child(4n) {
+  color: rgba(255, 217, 61, 0.6);
+  font-size: 18px;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Footer Styles */
+.sweet-footer {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 25px 20px;
+  margin-top: 50px;
+  text-align: center;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-heart {
+  display: inline-block;
+  animation: footerHeartBeat 1.5s infinite;
+  margin: 0 8px;
+  font-size: 1.2em;
+}
+
+@keyframes footerHeartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Mobile responsive for footer */
+@media (max-width: 768px) {
+  .sweet-footer {
+    padding: 20px 15px;
+    margin-top: 30px;
+  }
+
+  .footer-text {
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+  }
+}
 
 /* Home Page */
 .home-page {
@@ -134,6 +241,50 @@ body {
 
   100% {
     background-position: 0% 50%;
+  }
+}
+.love-poem {
+  margin-bottom: 40px;
+  animation: poemFadeIn 2s ease-in-out;
+}
+
+.poem-text {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  font-weight: 500;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@keyframes poemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsive for poem */
+@media (max-width: 768px) {
+  .love-poem {
+    margin-bottom: 30px;
+  }
+
+  .poem-text {
+    padding: 20px;
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
   }
 }
 
@@ -383,12 +534,12 @@ body {
   border-radius: 15px;
   object-fit: cover;
   margin-top: 15px;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  transition: none;
+  cursor: default;
 }
 
 .timeline-image:hover {
-  transform: scale(1.05);
+  transform: none;
 }
 
 .timeline-dot {
@@ -453,6 +604,8 @@ body {
   justify-content: center;
   align-items: center;
   animation: fadeIn 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .gallery-popup.active {
@@ -490,9 +643,11 @@ body {
 }
 
 .popup-image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   object-position: center;
   display: block;
   border-radius: 18px;
@@ -500,23 +655,36 @@ body {
 
 /* Mobile responsive */
 @media (max-width: 768px) {
+  .gallery-popup {
+    padding: 15px;
+  }
+
   .popup-content {
-    max-width: 350px;
-    margin: 20px;
+    max-width: 95vw;
+    max-height: 85vh;
+    border-radius: 15px;
   }
 
   .popup-image {
-    height: 350px;
+    max-height: 60vh;
+    border-radius: 12px;
   }
 }
 
 @media (max-width: 480px) {
+  .gallery-popup {
+    padding: 10px;
+  }
+
   .popup-content {
-    max-width: 300px;
+    max-width: 98vw;
+    max-height: 80vh;
+    border-radius: 12px;
   }
 
   .popup-image {
-    height: 300px;
+    max-height: 55vh;
+    border-radius: 10px;
   }
 }
 
@@ -548,16 +716,6 @@ body {
 
 /* Mobile responsive for popup */
 @media (max-width: 768px) {
-  .popup-content {
-    max-width: 350px;
-    max-height: 450px;
-    margin: 20px;
-  }
-
-  .popup-image {
-    max-height: 400px;
-  }
-
   .popup-close {
     top: 10px;
     right: 10px;
@@ -568,13 +726,12 @@ body {
 }
 
 @media (max-width: 480px) {
-  .popup-content {
-    max-width: 300px;
-    max-height: 400px;
-  }
-
-  .popup-image {
-    max-height: 350px;
+  .popup-close {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
   }
 }
 
@@ -1353,7 +1510,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 50vh;
   text-align: center;
   color: white;
   padding: 40px 20px;
@@ -1431,194 +1588,203 @@ body {
 }
 /* Music Player Styles */
 .music-player {
-    background: var(--glass);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 40px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    animation: musicPlayerSlideIn 0.8s ease;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: musicPlayerSlideIn 0.8s ease;
+}
+
+@keyframes musicPlayerSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  @keyframes musicPlayerSlideIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.music-message {
+  color: white;
+}
+
+.music-title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 10px rgba(255, 107, 157, 0.5);
+}
+
+.music-description {
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.music-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.music-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 30px;
+  background: var(--gradient-secondary);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: clamp(1rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+  min-width: 150px;
+  justify-content: center;
+}
+
+.music-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
+}
+
+.music-btn.playing {
+  background: var(--gradient-tertiary);
+  box-shadow: 0 8px 25px rgba(168, 230, 207, 0.3);
+}
+
+.music-btn.playing:hover {
+  box-shadow: 0 12px 35px rgba(168, 230, 207, 0.4);
+}
+
+.music-icon {
+  font-size: 1.2em;
+  animation: musicPulse 2s infinite;
+}
+
+.music-btn.playing .music-icon {
+  animation: musicSpin 2s linear infinite;
+}
+
+@keyframes musicPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes musicSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid var(--glass-border);
+}
+
+.volume-icon {
+  font-size: 1.1em;
+  color: var(--accent);
+}
+
+.volume-slider {
+  width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+  transition: all 0.3s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 6px 18px rgba(255, 107, 157, 0.6);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .music-player {
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+
   .music-info {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .music-message {
-    color: white;
-  }
-  
-  .music-title {
-    font-family: "Dancing Script", cursive;
-    font-size: clamp(1.8rem, 4vw, 2.2rem);
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 10px rgba(255, 107, 157, 0.5);
-  }
-  
-  .music-description {
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
-    line-height: 1.6;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .music-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 15px;
   }
-  
+
+  .music-controls {
+    width: 100%;
+  }
+
   .music-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 30px;
-    background: var(--gradient-secondary);
-    border: none;
-    border-radius: 50px;
-    color: white;
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
-    min-width: 150px;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .volume-control {
+    width: 100%;
+    max-width: 200px;
     justify-content: center;
   }
-  
-  .music-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
-  }
-  
-  .music-btn.playing {
-    background: var(--gradient-tertiary);
-    box-shadow: 0 8px 25px rgba(168, 230, 207, 0.3);
-  }
-  
-  .music-btn.playing:hover {
-    box-shadow: 0 12px 35px rgba(168, 230, 207, 0.4);
-  }
-  
-  .music-icon {
-    font-size: 1.2em;
-    animation: musicPulse 2s infinite;
-  }
-  
-  .music-btn.playing .music-icon {
-    animation: musicSpin 2s linear infinite;
-  }
-  
-  @keyframes musicPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-  }
-  
-  @keyframes musicSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  
-  .volume-control {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px 15px;
-    border-radius: 25px;
-    border: 1px solid var(--glass-border);
-  }
-  
-  .volume-icon {
-    font-size: 1.1em;
-    color: var(--accent);
-  }
-  
+
   .volume-slider {
-    width: 120px;
-    height: 6px;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 0.2);
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
+    width: 100px;
   }
-  
-  .volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--primary);
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
-    transition: all 0.3s ease;
-  }
-  
-  .volume-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-    box-shadow: 0 6px 18px rgba(255, 107, 157, 0.6);
-  }
-  
-  .volume-slider::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: var(--primary);
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
-    transition: all 0.3s ease;
-  }
-  
-  /* Mobile responsive */
-  @media (max-width: 768px) {
-    .music-player {
-      padding: 20px;
-      margin-bottom: 30px;
-    }
-    
-    .music-info {
-      gap: 15px;
-    }
-    
-    .music-controls {
-      width: 100%;
-    }
-    
-    .music-btn {
-      width: 100%;
-      max-width: 250px;
-    }
-    
-    .volume-control {
-      width: 100%;
-      max-width: 200px;
-      justify-content: center;
-    }
-    
-    .volume-slider {
-      width: 100px;
-    }
-  }
+}
